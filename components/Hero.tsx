@@ -34,7 +34,7 @@ const LiveDataFlow = () => {
     { text: "استراتيجية المنتجات", x: "10%", y: "15%", delay: 0, color: "bg-blue-50 border-blue-100 text-primary" },
     { text: "تجربة المستخدم", x: "70%", y: "10%", delay: 1, color: "bg-white border-gray-100 text-gray-600" },
     { text: "التحول الرقمي", x: "65%", y: "80%", delay: 2, color: "bg-white border-gray-100 text-gray-600" },
-    { text: "نماذج اللغة الكبيرة", x: "5%", y: "75%", delay: 3, color: "bg-primary text-white shadow-blue-500/20" },
+    { text: "أدوات الذكاء الاصطناعي", x: "5%", y: "75%", delay: 3, color: "bg-primary text-white shadow-blue-500/20" },
   ];
 
   return (
@@ -167,9 +167,9 @@ const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
             
             {/* Typography Fix: Added leading-relaxed (approx 1.625) to let Arabic text breathe */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-relaxed md:leading-relaxed mb-8">
-              مدير منتجات تقنية <br/>
+              <span className="block mb-6">مدير منتجات تقنية</span>
               <span className="text-transparent bg-clip-text bg-gradient-to-l from-primary to-blue-600">
-                ومُمكّن للذكاء الاصطناعي
+                ومُمكّن للذكاء الإصطناعي
               </span>
             </h1>
             
