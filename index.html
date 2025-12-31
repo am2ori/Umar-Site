@@ -4,16 +4,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#F9FAFB" />
-    <title>عمر طاهر علي | خبير استراتيجية المنتجات والذكاء الاصطناعي</title>
+    <title>عمر طاهر علي | مدير منتجات تقنية ومُمكّن للذكاء الاصطناعي</title>
     <meta
       name="description"
-      content="عمر طاهر علي، متخصص في بناء استراتيجيات المنتجات الرقمية وتمكين حلول الذكاء الاصطناعي، مؤسس مشارك في Webdoor و CBO في Easypay."
+      content="عمر طاهر علي، مدير منتجات تقنية وممكّن للذكاء الاصطناعي. أساعد المنشآت على النمو من خلال استراتيجيات المنتجات الرقمية وأتمتة العمليات."
     />
     
+    <!-- Custom Geometric Node Favicon (Royal Blue) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%232563EB' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='32' cy='12' r='5' fill='%232563EB' /%3E%3Ccircle cx='12' cy='52' r='5' fill='%232563EB' /%3E%3Ccircle cx='52' cy='52' r='5' fill='%232563EB' /%3E%3Cpath d='M32 12 L12 52 L52 52 Z' stroke='%232563EB' stroke-width='4' /%3E%3Ccircle cx='32' cy='36' r='3' fill='white' /%3E%3C/svg%3E">
+
+    <!-- Google Fonts: IBM Plex Sans Arabic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -27,18 +32,22 @@
             fontFamily: {
               sans: ['"IBM Plex Sans Arabic"', 'sans-serif'],
             },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }
           },
         },
       }
     </script>
 
+    <!-- JSON-LD Schema for GEO (Generative Engine Optimization) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Umar Tahir Ali",
         "alternateName": "عمر طاهر علي",
-        "jobTitle": "Product Strategist & AI Enabler",
+        "jobTitle": "Product Manager & AI Enabler",
         "description": "استراتيجي منتجات تقنية وممكّن للذكاء الاصطناعي. أساعد المنشآت على النمو، وأمكّن الأفراد من استثمار قدرات الذكاء الاصطناعي.",
         "url": "https://umartahir.ali",
         "affiliation": [
@@ -53,24 +62,23 @@
             "role": "CBO"
           }
         ],
-        "knowsAbout": ["Product Strategy", "Artificial Intelligence", "Digital Transformation", "Growth Hacking"]
+        "knowsAbout": ["Product Strategy", "Artificial Intelligence", "Digital Transformation", "Growth Hacking", "Automation"]
       }
     </script>
-    <script type="importmap">
-    {
-      "imports": {
-        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-        "framer-motion": "https://esm.sh/framer-motion@^12.23.26",
-        "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-        "react/": "https://esm.sh/react@^19.2.3/",
-        "react": "https://esm.sh/react@^19.2.3"
-      }
-    }
-    </script>
-  </head>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "framer-motion": "https://esm.sh/framer-motion@^12.23.26",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+</head>
   <body class="bg-[#F9FAFB] text-gray-900 antialiased font-sans overflow-x-hidden">
     <div id="root"></div>
-    
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>
