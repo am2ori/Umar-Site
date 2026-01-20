@@ -3,6 +3,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import QuoteSection from './components/QuoteSection';
+import Methodology from './components/Methodology';
+import TechStack from './components/TechStack';
 import Portfolio from './components/Portfolio';
 import Footer from './components/Footer';
 import ContactModal from './components/ContactModal';
@@ -17,9 +19,14 @@ function App() {
       <Navbar onContactClick={openContactModal} />
       <main>
         <Hero onContactClick={openContactModal} />
-        {/* New Quote Section placed between Hero and About */}
+        {/* Quote Section placed between Hero and About */}
         <QuoteSection />
         <About />
+        
+        {/* New Sections */}
+        <Methodology />
+        <TechStack />
+        
         <Portfolio onContactClick={openContactModal} />
       </main>
       <Footer />

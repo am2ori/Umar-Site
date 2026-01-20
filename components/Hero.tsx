@@ -31,14 +31,14 @@ const LiveDataFlow = () => {
   ];
 
   const floatingLabels = [
-    { text: "استراتيجية المنتجات", x: "10%", y: "15%", delay: 0, color: "bg-blue-50 border-blue-100 text-primary" },
-    { text: "تجربة المستخدم", x: "70%", y: "10%", delay: 1, color: "bg-white border-gray-100 text-gray-600" },
+    { text: "إدارة المشاريع", x: "10%", y: "15%", delay: 0, color: "bg-blue-50 border-blue-100 text-primary" },
+    { text: "استشارات الأعمال", x: "70%", y: "10%", delay: 1, color: "bg-white border-gray-100 text-gray-600" },
     { text: "التحول الرقمي", x: "65%", y: "80%", delay: 2, color: "bg-white border-gray-100 text-gray-600" },
     { text: "أدوات الذكاء الاصطناعي", x: "5%", y: "75%", delay: 3, color: "bg-primary text-white shadow-blue-500/20" },
   ];
 
   return (
-    <div className="w-full h-full min-h-[500px] flex items-center justify-center relative bg-gradient-to-br from-white/60 to-blue-50/30 backdrop-blur-sm rounded-[2.5rem] border border-blue-50 shadow-2xl shadow-blue-100/50 p-6 overflow-hidden">
+    <div className="w-full h-full min-h-[400px] md:min-h-[500px] flex items-center justify-center relative bg-gradient-to-br from-white/60 to-blue-50/30 backdrop-blur-sm rounded-[2rem] md:rounded-[2.5rem] border border-blue-50 shadow-2xl shadow-blue-100/50 p-4 md:p-6 overflow-hidden">
       
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(37,99,235,0.03),transparent_70%)]"></div>
@@ -112,7 +112,7 @@ const LiveDataFlow = () => {
         {floatingLabels.map((label, idx) => (
            <motion.div 
             key={idx}
-            className={`absolute px-4 py-2 rounded-xl shadow-sm border text-sm font-bold flex items-center gap-2 ${label.color}`}
+            className={`absolute px-3 py-1.5 md:px-4 md:py-2 rounded-xl shadow-sm border text-[10px] md:text-sm font-bold flex items-center gap-2 ${label.color}`}
             style={{ left: label.x, top: label.y }}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: [0, -8, 0] }}
@@ -132,7 +132,7 @@ const LiveDataFlow = () => {
 
 const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center pt-28 pb-12 md:pt-32 md:pb-20 overflow-hidden">
       {/* Background Grid Pattern - Much subtler opacity (0.05) */}
       <div className="absolute inset-0 z-0 pointer-events-none" 
            style={{
@@ -147,7 +147,7 @@ const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-50/40 to-transparent blur-3xl z-0"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-16 lg:gap-24">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-24">
           
           <motion.div 
             className="flex-1 text-right"
@@ -157,35 +157,72 @@ const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <motion.span 
-              className="inline-block px-5 py-2 bg-blue-50/80 border border-blue-100 text-primary rounded-full text-sm font-bold mb-8 tracking-wide"
+              className="inline-block px-4 py-1.5 md:px-5 md:py-2 bg-blue-50/80 border border-blue-100 text-primary rounded-full text-xs md:text-sm font-bold mb-6 tracking-wide"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              استراتيجية • ابتكار • ذكاء اصطناعي
+              إدارة مشاريع • ابتكار • ذكاء اصطناعي
             </motion.span>
             
-            {/* Typography Fix: Added leading-relaxed (approx 1.625) to let Arabic text breathe */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-relaxed md:leading-relaxed mb-8">
-              <span className="block mb-6">مدير منتجات تقنية</span>
+            {/* Typography Fix: Increased line-height (leading-loose) to prevent Arabic diacritics/dots overlap */}
+            <h1 className="text-3xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-loose md:leading-loose mb-6 md:mb-8">
+              <span className="block mb-2 md:mb-4">مدير مشاريع تقنية</span>
               <span className="text-transparent bg-clip-text bg-gradient-to-l from-primary to-blue-600">
                 ومُمكّن للذكاء الإصطناعي
               </span>
             </h1>
             
-            <p className="text-lg md:text-xl text-gray-500 leading-loose max-w-2xl mb-12 font-medium">
-              أصمم استراتيجيات المنتجات الرقمية التي تجمع بين احتياجات الإنسان وقوة الخوارزميات. رحلتي تهدف لتحويل التعقيد التقني إلى تجارب سلسة ونمو مستدام.
+            <p className="text-base md:text-xl text-gray-500 leading-loose max-w-2xl mb-8 font-medium">
+              حلقة وصل بين الخيال والحلول التقنية. أشرف على تنفيذ المشاريع الرقمية بدقة، وأوظف أدوات الذكاء الاصطناعي لضمان سرعة الإنجاز ورفع الجودة.
             </p>
 
+            {/* TRUST BAR: Certifications - Updated per request */}
             <motion.div 
-              className="flex flex-wrap gap-5"
+              className="flex flex-row gap-4 md:gap-6 items-center mb-8 md:mb-10 border-r-4 border-primary/20 pr-4 md:pr-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              {/* EMBA First - Removed grayscale */}
+              <div className="flex items-center gap-2 md:gap-3 group">
+                <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center p-1.5 group-hover:scale-105 transition-transform">
+                     <img 
+                        src="https://drive.google.com/thumbnail?id=1bYOAafE1XRAvx93La2Xg-OFcqHkDAII0&sz=w200" 
+                        alt="EMBA Logo" 
+                        referrerPolicy="no-referrer"
+                        className="w-full h-full object-contain" 
+                     />
+                </div>
+                <span className="text-xs md:text-sm font-semibold text-gray-700">ماجستير إدارة أعمال تنفيذي (EMBA)</span>
+              </div>
+
+              {/* Divider */}
+              <div className="w-px h-6 md:h-8 bg-gray-200"></div>
+
+              {/* PMP Second - Removed grayscale */}
+              <div className="flex items-center gap-2 md:gap-3 group">
+                <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center p-1.5 group-hover:scale-105 transition-transform">
+                     <img 
+                        src="https://drive.google.com/thumbnail?id=1joa-u67FNTN_vgIjcCsbTvo48-LnKvRy&sz=w200" 
+                        alt="PMP Logo" 
+                        referrerPolicy="no-referrer"
+                        className="w-full h-full object-contain" 
+                     />
+                </div>
+                <span className="text-xs md:text-sm font-semibold text-gray-700">مُحترف إدارة مشاريع (PMP®)</span>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="flex flex-wrap gap-4 md:gap-5"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
               <button 
                 onClick={onContactClick}
-                className="group flex items-center justify-center gap-3 bg-primary text-white px-9 py-4 rounded-xl text-lg font-semibold shadow-xl shadow-blue-500/20 hover:shadow-2xl hover:bg-blue-700 transition-all transform hover:-translate-y-1"
+                className="group flex items-center justify-center gap-2 md:gap-3 bg-primary text-white px-6 py-3 md:px-9 md:py-4 rounded-xl text-base md:text-lg font-semibold shadow-xl shadow-blue-500/20 hover:shadow-2xl hover:bg-blue-700 transition-all transform hover:-translate-y-1 w-full md:w-auto"
               >
                 <span>تواصل معي</span>
                 <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
@@ -195,7 +232,7 @@ const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
 
           {/* Hero Visual */}
           <motion.div 
-            className="flex-1 w-full max-w-lg lg:max-w-xl h-[500px]"
+            className="flex-1 w-full max-w-lg lg:max-w-xl h-[400px] md:h-[500px]"
             initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
             viewport={{ once: true }}

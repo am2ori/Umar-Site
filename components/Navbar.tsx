@@ -5,7 +5,8 @@ import { NavItem } from '../types';
 
 const navItems: NavItem[] = [
   { label: 'الرئيسية', href: '#hero' },
-  { label: 'عني', href: '#about' },
+  { label: 'رؤيتي', href: '#about' },
+  { label: 'منهجيتي', href: '#methodology' },
   { label: 'أعمالي', href: '#portfolio' },
 ];
 
@@ -32,7 +33,7 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
           
-          {/* Logo Name - Increased Size & Weight */}
+          {/* Logo Name */}
           <div className="flex-shrink-0">
             <a 
               href="#hero" 
@@ -43,7 +44,7 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
             </a>
           </div>
 
-          {/* Desktop Menu - Increased Font Size */}
+          {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="flex items-center gap-x-10">
               {navItems.map((item) => (
@@ -59,7 +60,7 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick }) => {
               ))}
               <button
                 onClick={onContactClick}
-                className="bg-primary text-white px-7 py-3 rounded-full text-base font-medium hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20 transform hover:-translate-y-0.5"
+                className="bg-primary text-white px-7 py-3 rounded-xl text-base font-medium hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20 transform hover:-translate-y-0.5"
               >
                 تواصل معي
               </button>
