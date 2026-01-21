@@ -33,7 +33,13 @@ const socialLinks: SocialLink[] = [
   { platform: 'WhatsApp', url: 'https://wa.me/966552038349', icon: <WhatsAppIcon className="w-5 h-5" /> },
 ];
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  t: {
+    rights: string;
+  };
+}
+
+const Footer: React.FC<FooterProps> = ({ t }) => {
   return (
     <footer id="contact" className="bg-gray-950 text-white py-12 border-t border-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,8 +60,8 @@ const Footer: React.FC = () => {
             ))}
           </div>
           
-          <div className="text-center md:text-left text-gray-500 text-sm">
-            <p>جميع الحقوق محفوظة 2026 عمر طاهر علي</p>
+          <div className="text-center md:text-start text-gray-500 text-sm">
+            <p>{t.rights}</p>
           </div>
         </div>
       </div>

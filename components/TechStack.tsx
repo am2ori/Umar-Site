@@ -19,11 +19,17 @@ const tools: Tool[] = [
   { name: 'GitHub', iconUrl: 'https://cdn.simpleicons.org/github/181717' },
 ];
 
-const TechStack: React.FC = () => {
+interface TechStackProps {
+  t: {
+    title: string;
+  };
+}
+
+const TechStack: React.FC<TechStackProps> = ({ t }) => {
   return (
     <section className="py-12 md:py-16 bg-[#F9FAFB] border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 mb-8 md:mb-10 text-center">
-        <h2 className="text-base md:text-lg text-gray-500 font-medium tracking-wide">أدوات أعتمد عليها في رحلة الإبتكار</h2>
+        <h2 className="text-base md:text-lg text-gray-500 font-medium tracking-wide">{t.title}</h2>
       </div>
 
       <div className="max-w-7xl mx-auto px-4">

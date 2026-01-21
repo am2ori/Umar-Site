@@ -1,50 +1,37 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpLeft, Mail, ExternalLink } from 'lucide-react';
+import { ArrowUpLeft, Mail } from 'lucide-react';
 import { Project } from '../types';
-
-const featuredProjects: Project[] = [
-  {
-    id: 'easypay',
-    title: 'إيزي باي (Easypay)',
-    role: 'استراتيجية ونمو',
-    description: 'الحل الأمثل لأتمتة أنظمة المبيعات والربط السلس مع مزودي خدمات المدفوعات.',
-    tags: ['Fintech', 'استراتيجية', 'تطوير أعمال'],
-    imageUrl: "https://easypay.sa/wp-content/uploads/2024/09/EasyPay-Logo-01.png",
-    link: "https://easypay.sa",
-    highlight: true,
-  },
-  {
-    id: 'webdoor',
-    title: 'ويب دور (Webdoor)',
-    role: 'مؤسس مشارك',
-    description: 'منصة تساعدك في إنشاء الموقع الإلكتروني الخاص بك بخطوات سهلة وواجهات عربية.',
-    tags: ['SaaS', 'إدارة منتجات', 'نمو'],
-    imageUrl: 'https://webdoor.site/wp-content/uploads/2024/03/Webdoor-Logo-Original-ar-en.png',
-    link: "https://webdoor.site",
-    highlight: true,
-  }
-];
 
 interface PortfolioProps {
   onContactClick: () => void;
+  t: {
+    title: string;
+    projects: Project[];
+    cta: {
+      title: string;
+      sub: string;
+      button: string;
+      visit: string;
+    };
+  };
 }
 
-const Portfolio: React.FC<PortfolioProps> = ({ onContactClick }) => {
+const Portfolio: React.FC<PortfolioProps> = ({ onContactClick, t }) => {
   return (
     <section id="portfolio" className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-8 md:mb-12 gap-4 md:gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12 gap-4 md:gap-6">
             <div>
-                <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">أعمالي ومشاريعي</h2>
+                <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">{t.title}</h2>
             </div>
         </div>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-16 md:mb-24">
-          {featuredProjects.map((project, index) => (
+          {t.projects.map((project, index) => (
             <motion.div 
               key={project.id}
               className="group bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 p-6 md:p-8 flex flex-col relative overflow-hidden"
@@ -98,10 +85,10 @@ const Portfolio: React.FC<PortfolioProps> = ({ onContactClick }) => {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-primary transition-colors pl-2"
+                      className="inline-flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-primary transition-colors px-2"
                     >
-                        <span>زيارة</span>
-                        <ArrowUpLeft className="w-4 h-4" />
+                        <span>{t.cta.visit}</span>
+                        <ArrowUpLeft className="w-4 h-4 rtl:rotate-90" />
                     </a>
                 </div>
               </div>
@@ -113,7 +100,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ onContactClick }) => {
         <motion.div 
           className="bg-gray-900 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-12 text-center relative overflow-hidden"
           initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
           viewport={{ once: true }}
         >
           {/* Decorative gradients */}
@@ -121,10 +108,10 @@ const Portfolio: React.FC<PortfolioProps> = ({ onContactClick }) => {
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/20 blur-[100px] rounded-full -translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
           
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
-            <div className="text-right max-w-2xl">
-              <h2 className="text-xl md:text-3xl font-bold text-white mb-2 md:mb-3">جاهز لنقل مشروعك للمستوى التالي؟</h2>
+            <div className="text-start max-w-2xl">
+              <h2 className="text-xl md:text-3xl font-bold text-white mb-2 md:mb-3">{t.cta.title}</h2>
               <p className="text-gray-400 text-sm md:text-lg">
-                سواء كنت تبحث عن استراتيجية منتج أو حلول ذكاء اصطناعي، أنا هنا للمساعدة.
+                {t.cta.sub}
               </p>
             </div>
             
@@ -133,7 +120,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ onContactClick }) => {
               className="whitespace-nowrap inline-flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 text-white px-6 py-3 md:px-8 md:py-4 rounded-xl font-bold transition-all shadow-lg shadow-blue-900/50 w-full md:w-auto hover:-translate-y-1"
             >
               <Mail className="w-5 h-5" />
-              تواصل معي
+              {t.cta.button}
             </button>
           </div>
         </motion.div>

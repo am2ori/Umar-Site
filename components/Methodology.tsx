@@ -1,35 +1,25 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Search, Calendar, Sparkles, Rocket } from 'lucide-react';
+import { Language } from '../types';
 
-const steps = [
-  {
-    title: 'التحليل والوضوح',
-    desc: 'فهم عميق للمتطلبات وتحديد الأهداف بدقة.',
-    icon: <Search className="w-6 h-6" />,
-    step: '01'
-  },
-  {
-    title: 'التخطيط المرن',
-    desc: 'تجزئة المشروع إلى مهام قابلة للتنفيذ (Sprints).',
-    icon: <Calendar className="w-6 h-6" />,
-    step: '02'
-  },
-  {
-    title: 'التنفيذ المعزز بالذكاء الاصطناعي',
-    desc: 'دمج قدرات الذكاء الاصطناعي لاختصار الوقت ورفع جودة المخرجات.',
-    icon: <Sparkles className="w-6 h-6" />,
-    step: '03'
-  },
-  {
-    title: 'التسليم والتحسين',
-    desc: 'إطلاق المنتج ومراقبة الأداء لضمان التطوير المستمر.',
-    icon: <Rocket className="w-6 h-6" />,
-    step: '04'
-  }
-];
+interface MethodologyProps {
+  lang: Language;
+  t: {
+    title: string;
+    subtitle: string;
+    steps: { title: string; desc: string; step: string; }[];
+  };
+}
 
-const Methodology: React.FC = () => {
+const Methodology: React.FC<MethodologyProps> = ({ t, lang }) => {
+  const icons = [
+    <Search className="w-6 h-6" />,
+    <Calendar className="w-6 h-6" />,
+    <Sparkles className="w-6 h-6" />,
+    <Rocket className="w-6 h-6" />
+  ];
+
   return (
     <section id="methodology" className="py-16 md:py-24 bg-gradient-to-b from-white via-blue-50/20 to-white relative overflow-hidden">
       
@@ -41,10 +31,10 @@ const Methodology: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            منهجيتي في العمل
+            {t.title}
           </motion.h2>
           <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto">
-            عملية مدروسة تمزج بين الانضباط والتكنولوجيا
+            {t.subtitle}
           </p>
         </div>
 
@@ -52,7 +42,7 @@ const Methodology: React.FC = () => {
           {/* Connecting Line (Desktop) */}
           <div className="hidden lg:block absolute top-8 left-0 right-0 h-1 bg-gray-100 rounded-full overflow-hidden">
              <motion.div 
-               className="h-full bg-gradient-to-l from-primary to-blue-300 origin-right"
+               className={`h-full bg-gradient-to-l from-primary to-blue-300 ${lang === 'ar' ? 'origin-right' : 'origin-left'}`}
                initial={{ scaleX: 0 }}
                whileInView={{ scaleX: 1 }}
                viewport={{ once: true }}
@@ -61,7 +51,7 @@ const Methodology: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {steps.map((step, index) => (
+            {t.steps.map((step, index) => (
               <motion.div
                 key={index}
                 className="relative z-10 flex flex-col items-center"
@@ -81,7 +71,7 @@ const Methodology: React.FC = () => {
                    <div className="flex flex-row lg:flex-col items-center lg:items-start gap-4 mb-4">
                       {/* Icon */}
                       <div className="p-3 rounded-xl bg-blue-50 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                        {step.icon}
+                        {icons[index]}
                       </div>
                       
                       {/* Mobile Step Indicator */}

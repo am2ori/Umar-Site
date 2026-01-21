@@ -2,7 +2,19 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, ShieldCheck, Lightbulb, Activity } from 'lucide-react';
 
-const About: React.FC = () => {
+interface AboutProps {
+  t: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    body: string;
+    imgBadgeTitle: string;
+    imgBadgeValue: string;
+    features: { label: string; desc: string; }[];
+  };
+}
+
+const About: React.FC<AboutProps> = ({ t }) => {
   // Stagger variants for list items
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -20,6 +32,12 @@ const About: React.FC = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
+  const icons = [
+    <TrendingUp className="w-5 h-5" />,
+    <ShieldCheck className="w-5 h-5" />,
+    <Lightbulb className="w-5 h-5" />
+  ];
+
   return (
     <section id="about" className="py-16 md:py-24 bg-[#F9FAFB] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,7 +52,7 @@ const About: React.FC = () => {
             transition={{ duration: 1, ease: "easeOut" }}
           >
              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-blue-900/10 border border-white/50 group h-full">
-                {/* Image: Abstract Growth/Pathway */}
+                {/* Image: Abstract Growth/Pathway - KEEP ASSET */}
                 <img 
                   src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" 
                   alt="Business Meeting Strategy" 
@@ -51,8 +69,8 @@ const About: React.FC = () => {
                         <Activity className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                       </div>
                       <div>
-                        <p className="text-[10px] md:text-xs text-gray-500 font-bold uppercase tracking-wider">التركيز على</p>
-                        <p className="text-gray-900 font-bold text-base md:text-lg">نتائج الأعمال</p>
+                        <p className="text-[10px] md:text-xs text-gray-500 font-bold uppercase tracking-wider">{t.imgBadgeTitle}</p>
+                        <p className="text-gray-900 font-bold text-base md:text-lg">{t.imgBadgeValue}</p>
                       </div>
                    </div>
                 </div>
@@ -67,15 +85,15 @@ const About: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
           >
-            <span className="text-primary font-bold tracking-wider text-sm uppercase mb-3 block">الرؤية والمسار</span>
+            <span className="text-primary font-bold tracking-wider text-sm uppercase mb-3 block">{t.badge}</span>
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              سد الفجوة بين <br/>
-              <span className="text-gray-400">لغة الأعمال والتقنية</span>
+              {t.title} <br/>
+              <span className="text-gray-400">{t.subtitle}</span>
             </h2>
             
-            <div className="space-y-4 md:space-y-6 text-base md:text-lg text-gray-600 leading-loose mb-8 md:mb-10">
+            <div className="space-y-4 md:space-y-6 text-base md:text-lg text-gray-600 leading-relaxed mb-8 md:mb-10">
               <p>
-                مشكلة معظم المشاريع التقنية ليست في الكود، بل في غياب الفهم التجاري. دوري هو ضمان أن كل سطر برمجي وكل خوارزمية ذكاء اصطناعي تخدم هدفاً ربحياً وتشغيلياً للمنشأة.
+                {t.body}
               </p>
             </div>
 
@@ -86,30 +104,14 @@ const About: React.FC = () => {
               whileInView="visible"
               viewport={{ once: true }}
             >
-              {[
-                { 
-                    icon: <TrendingUp className="w-5 h-5" />, 
-                    label: "فهم احتياجات الأعمال", 
-                    desc: "التقنية وسيلة لتحقيق الأهداف وليست غاية." 
-                },
-                { 
-                    icon: <ShieldCheck className="w-5 h-5" />, 
-                    label: "قيادة استباقية", 
-                    desc: "توقع المخاطر ومعالجتها مبكراً." 
-                },
-                { 
-                    icon: <Lightbulb className="w-5 h-5" />, 
-                    label: "ابتكار واقعي", 
-                    desc: "حلول ذكية قابلة للتطبيق بعيداً عن التعقيد." 
-                },
-              ].map((item, idx) => (
+              {t.features.map((item, idx) => (
                 <motion.div 
                   key={idx} 
                   variants={itemVariants}
                   className="flex items-center gap-4 p-3 rounded-xl hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-gray-100"
                 >
                   <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-blue-50 text-primary rounded-lg">
-                    {item.icon}
+                    {icons[idx]}
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 text-base md:text-lg">{item.label}</h4>

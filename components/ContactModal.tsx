@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail, Linkedin, Phone } from 'lucide-react';
+import { X, Mail, Linkedin } from 'lucide-react';
 
 // Custom X (Twitter) Icon
 const XIcon = ({ className }: { className?: string }) => (
@@ -19,9 +19,13 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
+  t: {
+    title: string;
+    subtitle: string;
+  };
 }
 
-const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
+const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, t }) => {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -52,8 +56,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                 </button>
 
                 <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">تواصل معي</h3>
-                  <p className="text-gray-600">اختر الطريقة المناسبة لك</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{t.title}</h3>
+                  <p className="text-gray-600">{t.subtitle}</p>
                 </div>
 
                 <div className="space-y-4">
@@ -67,7 +71,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                     <div className="bg-white p-2 rounded-full shadow-sm">
                       <WhatsAppIcon className="w-6 h-6" />
                     </div>
-                    <div className="text-right flex-1">
+                    <div className="text-end flex-1">
                       <p className="font-semibold">WhatsApp</p>
                       <p className="text-sm opacity-80" dir="ltr">+966 55 203 8349</p>
                     </div>
@@ -81,8 +85,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                     <div className="bg-white p-2 rounded-full shadow-sm">
                       <Mail className="w-6 h-6" />
                     </div>
-                    <div className="text-right flex-1">
-                      <p className="font-semibold">البريد الإلكتروني</p>
+                    <div className="text-end flex-1">
+                      <p className="font-semibold">Email</p>
                       <p className="text-sm opacity-80">UmarHowsawi@gmail.com</p>
                     </div>
                   </a>
@@ -97,9 +101,9 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                     <div className="bg-white p-2 rounded-full shadow-sm">
                       <Linkedin className="w-6 h-6" />
                     </div>
-                    <div className="text-right flex-1">
+                    <div className="text-end flex-1">
                       <p className="font-semibold">LinkedIn</p>
-                      <p className="text-sm opacity-80">عمر طاهر علي</p>
+                      <p className="text-sm opacity-80">Umar Tahir Ali</p>
                     </div>
                   </a>
 
@@ -113,7 +117,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                     <div className="bg-white p-2 rounded-full shadow-sm">
                       <XIcon className="w-6 h-6" />
                     </div>
-                    <div className="text-right flex-1">
+                    <div className="text-end flex-1">
                       <p className="font-semibold">X (Twitter)</p>
                       <p className="text-sm opacity-80">@UmarHowsawi</p>
                     </div>

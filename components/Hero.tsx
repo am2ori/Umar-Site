@@ -1,12 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { Language } from '../types';
 
 interface HeroProps {
   onContactClick: () => void;
+  lang: Language;
+  t: {
+    badge: string;
+    role: string;
+    subtext: string;
+    cta: string;
+    cert1: string;
+    cert2: string;
+    nodes: string[];
+  };
 }
 
-const LiveDataFlow = () => {
+const LiveDataFlow = ({ labels }: { labels: string[] }) => {
   // Nodes configuration
   const nodes = [
     { id: 'start', x: 50, y: 250, r: 6 },
@@ -31,10 +42,10 @@ const LiveDataFlow = () => {
   ];
 
   const floatingLabels = [
-    { text: "إدارة المشاريع", x: "10%", y: "15%", delay: 0, color: "bg-blue-50 border-blue-100 text-primary" },
-    { text: "استشارات الأعمال", x: "70%", y: "10%", delay: 1, color: "bg-white border-gray-100 text-gray-600" },
-    { text: "التحول الرقمي", x: "65%", y: "80%", delay: 2, color: "bg-white border-gray-100 text-gray-600" },
-    { text: "أدوات الذكاء الاصطناعي", x: "5%", y: "75%", delay: 3, color: "bg-primary text-white shadow-blue-500/20" },
+    { text: labels[0], x: "10%", y: "15%", delay: 0, color: "bg-blue-50 border-blue-100 text-primary" },
+    { text: labels[1], x: "70%", y: "10%", delay: 1, color: "bg-white border-gray-100 text-gray-600" },
+    { text: labels[2], x: "65%", y: "80%", delay: 2, color: "bg-white border-gray-100 text-gray-600" },
+    { text: labels[3], x: "5%", y: "75%", delay: 3, color: "bg-primary text-white shadow-blue-500/20" },
   ];
 
   return (
@@ -130,10 +141,12 @@ const LiveDataFlow = () => {
   );
 };
 
-const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
+const Hero: React.FC<HeroProps> = ({ onContactClick, t, lang }) => {
+  const isRTL = lang === 'ar';
+  
   return (
     <section id="hero" className="relative min-h-screen flex items-center pt-28 pb-12 md:pt-32 md:pb-20 overflow-hidden">
-      {/* Background Grid Pattern - Much subtler opacity (0.05) */}
+      {/* Background Grid Pattern */}
       <div className="absolute inset-0 z-0 pointer-events-none" 
            style={{
              backgroundImage: 'linear-gradient(#94a3b8 1px, transparent 1px), linear-gradient(90deg, #94a3b8 1px, transparent 1px)',
@@ -144,13 +157,13 @@ const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
       
       {/* Soft luxurious gradients */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#F9FAFB] via-transparent to-[#F9FAFB]/80 z-0"></div>
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-50/40 to-transparent blur-3xl z-0"></div>
+      <div className={`absolute top-0 ${isRTL ? 'right-0' : 'left-0'} w-1/2 h-full bg-gradient-to-l from-blue-50/40 to-transparent blur-3xl z-0`}></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-24">
           
           <motion.div 
-            className="flex-1 text-right"
+            className="flex-1 text-start"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -158,33 +171,29 @@ const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
           >
             <motion.span 
               className="inline-block px-4 py-1.5 md:px-5 md:py-2 bg-blue-50/80 border border-blue-100 text-primary rounded-full text-xs md:text-sm font-bold mb-6 tracking-wide"
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              إدارة مشاريع • ابتكار • ذكاء اصطناعي
+              {t.badge}
             </motion.span>
             
-            {/* Typography Fix: Increased line-height (leading-loose) to prevent Arabic diacritics/dots overlap */}
-            <h1 className="text-3xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-loose md:leading-loose mb-6 md:mb-8">
-              <span className="block mb-2 md:mb-4">مدير مشاريع تقنية</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-l from-primary to-blue-600">
-                ومُمكّن للذكاء الإصطناعي
-              </span>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight md:leading-tight mb-6 md:mb-8">
+              {t.role}
             </h1>
             
-            <p className="text-base md:text-xl text-gray-500 leading-loose max-w-2xl mb-8 font-medium">
-              حلقة وصل بين الخيال والحلول التقنية. أشرف على تنفيذ المشاريع الرقمية بدقة، وأوظف أدوات الذكاء الاصطناعي لضمان سرعة الإنجاز ورفع الجودة.
+            <p className="text-base md:text-xl text-gray-500 leading-relaxed max-w-2xl mb-8 font-medium">
+              {t.subtext}
             </p>
 
-            {/* TRUST BAR: Certifications - Updated per request */}
+            {/* TRUST BAR: Certifications */}
             <motion.div 
-              className="flex flex-row gap-4 md:gap-6 items-center mb-8 md:mb-10 border-r-4 border-primary/20 pr-4 md:pr-6"
+              className={`flex flex-row gap-4 md:gap-6 items-center mb-8 md:mb-10 ${isRTL ? 'border-r-4 pr-4 md:pr-6' : 'border-l-4 pl-4 md:pl-6'} border-primary/20`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              {/* EMBA First - Removed grayscale */}
+              {/* EMBA First */}
               <div className="flex items-center gap-2 md:gap-3 group">
                 <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center p-1.5 group-hover:scale-105 transition-transform">
                      <img 
@@ -194,13 +203,13 @@ const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                         className="w-full h-full object-contain" 
                      />
                 </div>
-                <span className="text-xs md:text-sm font-semibold text-gray-700">ماجستير إدارة أعمال تنفيذي (EMBA)</span>
+                <span className="text-xs md:text-sm font-semibold text-gray-700">{t.cert1}</span>
               </div>
 
               {/* Divider */}
               <div className="w-px h-6 md:h-8 bg-gray-200"></div>
 
-              {/* PMP Second - Removed grayscale */}
+              {/* PMP Second */}
               <div className="flex items-center gap-2 md:gap-3 group">
                 <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center p-1.5 group-hover:scale-105 transition-transform">
                      <img 
@@ -210,7 +219,7 @@ const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                         className="w-full h-full object-contain" 
                      />
                 </div>
-                <span className="text-xs md:text-sm font-semibold text-gray-700">مُحترف إدارة مشاريع (PMP®)</span>
+                <span className="text-xs md:text-sm font-semibold text-gray-700">{t.cert2}</span>
               </div>
             </motion.div>
 
@@ -224,8 +233,11 @@ const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                 onClick={onContactClick}
                 className="group flex items-center justify-center gap-2 md:gap-3 bg-primary text-white px-6 py-3 md:px-9 md:py-4 rounded-xl text-base md:text-lg font-semibold shadow-xl shadow-blue-500/20 hover:shadow-2xl hover:bg-blue-700 transition-all transform hover:-translate-y-1 w-full md:w-auto"
               >
-                <span>تواصل معي</span>
-                <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+                <span>{t.cta}</span>
+                {isRTL ? 
+                  <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" /> :
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                }
               </button>
             </motion.div>
           </motion.div>
@@ -238,7 +250,7 @@ const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
           >
-            <LiveDataFlow />
+            <LiveDataFlow labels={t.nodes} />
           </motion.div>
 
         </div>

@@ -2,7 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 
-const QuoteSection: React.FC = () => {
+interface QuoteProps {
+  t: {
+    text: string;
+  };
+}
+
+const QuoteSection: React.FC<QuoteProps> = ({ t }) => {
   return (
     <section className="py-16 md:py-28 bg-white relative overflow-hidden">
         {/* Subtle decorative background elements */}
@@ -21,8 +27,8 @@ const QuoteSection: React.FC = () => {
                     <Quote size={24} className="rotate-180 md:w-8 md:h-8" />
                 </div>
                 
-                <h2 className="text-2xl md:text-5xl font-bold text-gray-900 leading-loose md:leading-relaxed font-sans tracking-tight">
-                    "أؤمن بأن الذكاء الاصطناعي هو المحرك الجديد لكفاءة المشاريع ونجاحها."
+                <h2 className="text-2xl md:text-5xl font-bold text-gray-900 leading-relaxed md:leading-relaxed tracking-tight">
+                    "{t.text}"
                 </h2>
                 
                 <div className="mt-8 md:mt-12 w-16 md:w-24 h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent rounded-full"></div>
