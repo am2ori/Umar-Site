@@ -79,7 +79,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, t }) => {
 
                   {/* Email */}
                   <a
-                    href="mailto:UmarHowsawi@gmail.com"
+                    href="mailto:info@umarali.cc"
                     className="flex items-center gap-4 p-4 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors group"
                   >
                     <div className="bg-white p-2 rounded-full shadow-sm">
@@ -87,7 +87,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, t }) => {
                     </div>
                     <div className="text-end flex-1">
                       <p className="font-semibold">Email</p>
-                      <p className="text-sm opacity-80">UmarHowsawi@gmail.com</p>
+                      <p className="text-sm opacity-80">info@umarali.cc</p>
                     </div>
                   </a>
 

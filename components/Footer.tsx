@@ -28,7 +28,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 
 const socialLinks: SocialLink[] = [
   { platform: 'LinkedIn', url: 'https://www.linkedin.com/in/umartahirali/', icon: <Linkedin className="w-6 h-6" /> },
-  { platform: 'Email', url: 'mailto:UmarHowsawi@gmail.com', icon: <Mail className="w-6 h-6" /> },
+  { platform: 'Email', url: 'mailto:info@umarali.cc', icon: <Mail className="w-6 h-6" /> },
   { platform: 'X', url: 'https://x.com/UmarHowsawi', icon: <XIcon className="w-5 h-5" /> },
   { platform: 'WhatsApp', url: 'https://wa.me/966552038349', icon: <WhatsAppIcon className="w-5 h-5" /> },
 ];

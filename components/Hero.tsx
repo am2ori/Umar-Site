@@ -8,7 +8,8 @@ interface HeroProps {
   lang: Language;
   t: {
     badge: string;
-    role: string;
+    rolePrefix: string;
+    roleSuffix: string;
     subtext: string;
     cta: string;
     cert1: string;
@@ -178,8 +179,8 @@ const Hero: React.FC<HeroProps> = ({ onContactClick, t, lang }) => {
               {t.badge}
             </motion.span>
             
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight md:leading-tight mb-6 md:mb-8">
-              {t.role}
+            <h1 className={`text-3xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 md:mb-8 ${isRTL ? 'leading-relaxed md:leading-relaxed' : 'leading-tight md:leading-tight'}`}>
+              {t.rolePrefix} <span className="text-primary">{t.roleSuffix}</span>
             </h1>
             
             <p className="text-base md:text-xl text-gray-500 leading-relaxed max-w-2xl mb-8 font-medium">

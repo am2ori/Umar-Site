@@ -14,7 +14,8 @@ export const translations = {
     },
     hero: {
       badge: 'إدارة مشاريع • ابتكار • ذكاء اصطناعي',
-      role: 'مدير مشاريع تقنية ومُمكن للذكاء الاصطناعي',
+      rolePrefix: 'مدير مشاريع تقنية',
+      roleSuffix: ' ومُمكن للذكاء الاصطناعي',
       subtext: 'حلقة وصل بين أهداف الأعمال والحلول التقنية. أشرف على تنفيذ المشاريع الرقمية بدقة، وأوظف أدوات الذكاء الاصطناعي لضمان سرعة الإنجاز ورفع الجودة.',
       cta: 'تواصل معي',
       cert1: 'ماجستير إدارة أعمال تنفيذي (EMBA)',
@@ -74,7 +75,7 @@ export const translations = {
           role: 'مؤسس مشارك',
           description: 'منصة تساعدك في إنشاء الموقع الإلكتروني الخاص بك بدون خبير تقني.',
           tags: ['SaaS', 'إدارة منتجات', 'نمو'],
-          imageUrl: 'https://webdoor.site/wp-content/uploads/2024/03/Webdoor-Logo-Original-ar-en.png',
+          imageUrl: 'https://drive.google.com/thumbnail?id=1E6NAEDvHN67RpHZKMnGDm6eGdU3bZdss&sz=w500',
           link: "https://webdoor.site",
           highlight: true,
         }
@@ -82,7 +83,7 @@ export const translations = {
       cta: {
         title: 'هل لديك مشروع طموح؟',
         sub: 'لا تكتفِ بالتنفيذ التقليدي. دعنا ندمج دقة إدارة المشاريع مع قوة الذكاء الاصطناعي.',
-        button: 'ناقش مشروعك معي',
+        button: 'تواصل معي الآن',
         visit: 'زيارة'
       }
     },
@@ -107,7 +108,8 @@ export const translations = {
     },
     hero: {
       badge: 'Project Management • Innovation • AI',
-      role: 'Tech Project Manager & AI Enabler',
+      rolePrefix: 'Tech Project Manager',
+      roleSuffix: ' & AI Enabler',
       subtext: 'Bridging the gap between business goals and technical execution. I lead digital projects with precision and leverage AI to ensure speed and quality.',
       cta: "Let's Talk",
       cert1: 'Executive MBA - Quantic',
@@ -167,7 +169,7 @@ export const translations = {
           role: 'Co-Founder',
           description: 'A platform helping you build your own website without tech expertise.',
           tags: ['SaaS', 'Product Mgmt', 'Growth'],
-          imageUrl: 'https://webdoor.site/wp-content/uploads/2024/03/Webdoor-Logo-Original-ar-en.png',
+          imageUrl: 'https://drive.google.com/thumbnail?id=1E6NAEDvHN67RpHZKMnGDm6eGdU3bZdss&sz=w500',
           link: "https://webdoor.site",
           highlight: true,
         }
