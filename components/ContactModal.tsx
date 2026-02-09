@@ -1,13 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail, Linkedin } from 'lucide-react';
-
-// Custom X (Twitter) Icon
-const XIcon = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-  </svg>
-);
+import { X, Mail } from 'lucide-react';
 
 // Custom WhatsApp Icon
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -19,13 +12,17 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
+  customMessage?: string;
   t: {
     title: string;
     subtitle: string;
   };
 }
 
-const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, t }) => {
+const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, t, customMessage }) => {
+  const phoneNumber = '966552038349';
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(customMessage || '')}`;
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -46,80 +43,48 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, t }) => {
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             className="fixed inset-0 z-[70] flex items-center justify-center p-4 pointer-events-none"
           >
-            <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md pointer-events-auto overflow-hidden">
-              <div className="p-6 md:p-8 relative">
+            <div className="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-md pointer-events-auto overflow-hidden">
+              <div className="p-8 md:p-10 relative">
                 <button
                   onClick={onClose}
-                  className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors bg-gray-100 rounded-full p-2"
+                  className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors bg-gray-50 rounded-full p-2"
                 >
                   <X size={20} />
                 </button>
 
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{t.title}</h3>
-                  <p className="text-gray-600">{t.subtitle}</p>
+                <div className="text-center mb-10">
+                  <h3 className="text-3xl font-bold text-gray-900 mb-3">{t.title}</h3>
+                  <p className="text-gray-600 text-lg">{t.subtitle}</p>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-5">
                   {/* WhatsApp */}
                   <a
-                    href="https://wa.me/966552038349"
+                    href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-green-50 text-green-700 hover:bg-green-100 transition-colors group"
+                    className="flex items-center gap-5 p-5 rounded-2xl bg-green-50 text-green-700 hover:bg-green-100 transition-all group border border-green-100/50 shadow-sm"
                   >
-                    <div className="bg-white p-2 rounded-full shadow-sm">
-                      <WhatsAppIcon className="w-6 h-6" />
+                    <div className="bg-white p-3 rounded-xl shadow-sm group-hover:scale-110 transition-transform">
+                      <WhatsAppIcon className="w-8 h-8" />
                     </div>
                     <div className="text-end flex-1">
-                      <p className="font-semibold">WhatsApp</p>
-                      <p className="text-sm opacity-80" dir="ltr">+966 55 203 8349</p>
+                      <p className="font-bold text-xl mb-0.5">WhatsApp</p>
+                      <p className="text-sm font-medium opacity-80 leading-none" dir="ltr">+966 55 203 8349</p>
                     </div>
                   </a>
 
                   {/* Email */}
                   <a
                     href="mailto:info@umarali.cc"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors group"
+                    className="flex items-center gap-5 p-5 rounded-2xl bg-blue-50 text-blue-700 hover:bg-blue-100 transition-all group border border-blue-100/50 shadow-sm"
                   >
-                    <div className="bg-white p-2 rounded-full shadow-sm">
-                      <Mail className="w-6 h-6" />
+                    <div className="bg-white p-3 rounded-xl shadow-sm group-hover:scale-110 transition-transform">
+                      <Mail className="w-8 h-8" />
                     </div>
                     <div className="text-end flex-1">
-                      <p className="font-semibold">Email</p>
-                      <p className="text-sm opacity-80">info@umarali.cc</p>
-                    </div>
-                  </a>
-
-                  {/* LinkedIn */}
-                  <a
-                    href="https://www.linkedin.com/in/umartahirali/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-sky-50 text-sky-700 hover:bg-sky-100 transition-colors group"
-                  >
-                    <div className="bg-white p-2 rounded-full shadow-sm">
-                      <Linkedin className="w-6 h-6" />
-                    </div>
-                    <div className="text-end flex-1">
-                      <p className="font-semibold">LinkedIn</p>
-                      <p className="text-sm opacity-80">Umar Tahir Ali</p>
-                    </div>
-                  </a>
-
-                  {/* X / Twitter */}
-                  <a
-                    href="https://x.com/UmarHowsawi"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 text-gray-900 hover:bg-gray-100 transition-colors group"
-                  >
-                    <div className="bg-white p-2 rounded-full shadow-sm">
-                      <XIcon className="w-6 h-6" />
-                    </div>
-                    <div className="text-end flex-1">
-                      <p className="font-semibold">X (Twitter)</p>
-                      <p className="text-sm opacity-80">@UmarHowsawi</p>
+                      <p className="font-bold text-xl mb-0.5">Email</p>
+                      <p className="text-sm font-medium opacity-80 leading-none">info@umarali.cc</p>
                     </div>
                   </a>
                 </div>

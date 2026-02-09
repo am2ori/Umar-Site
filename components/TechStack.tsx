@@ -4,22 +4,33 @@ import { motion } from 'framer-motion';
 interface Tool {
   name: string;
   iconUrl: string;
+  hideLabel?: boolean;
 }
 
 const tools: Tool[] = [
+  // Productivity & PM
   { name: 'Jira', iconUrl: 'https://cdn.simpleicons.org/jira/0052CC' },
   { name: 'Trello', iconUrl: 'https://cdn.simpleicons.org/trello/0079BF' },
-  { name: 'Slack', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg' },
-  { name: 'Microsoft 365', iconUrl: 'https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/assets/brand-icons/product/svg/m365_48x1.svg' },
+  { name: 'Slack', iconUrl: 'https://cdn.simpleicons.org/slack/4A154B' },
+  { name: 'Microsoft 365', iconUrl: 'https://api.iconify.design/logos:microsoft-icon.svg' },
+  { name: 'Google Workspace', iconUrl: 'https://api.iconify.design/logos:google-workspace.svg', hideLabel: true },
   { name: 'Miro', iconUrl: 'https://cdn.simpleicons.org/miro/050038' },
+  
+  // Design
   { name: 'Figma', iconUrl: 'https://cdn.simpleicons.org/figma/F24E1E' },
-  { name: 'Photoshop', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg' },
-  { name: 'Illustrator', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg' },
-  { name: 'InDesign', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg' },
-  { name: 'ChatGPT', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg' },
+  { name: 'Photoshop', iconUrl: 'https://api.iconify.design/logos:adobe-photoshop.svg' },
+  { name: 'Illustrator', iconUrl: 'https://api.iconify.design/logos:adobe-illustrator.svg' },
+  { name: 'InDesign', iconUrl: 'https://api.iconify.design/logos:adobe-indesign.svg' },
+
+  // AI Platforms (Sequential)
+  { name: 'ChatGPT', iconUrl: 'https://api.iconify.design/logos:openai-icon.svg' },
+  { name: 'Claude', iconUrl: 'https://cdn.simpleicons.org/claude/D97757' },
+  { name: 'Perplexity', iconUrl: 'https://cdn.simpleicons.org/perplexity/20B2AA' },
+  { name: 'Google AI Studio', iconUrl: 'https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg' },
+  
+  // Automation & Dev
   { name: 'n8n', iconUrl: 'https://cdn.simpleicons.org/n8n/EA4B71' },
   { name: 'Firebase', iconUrl: 'https://cdn.simpleicons.org/firebase/FFCA28' },
-  { name: 'Google AI Studio', iconUrl: 'https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg' },
   { name: 'GitHub', iconUrl: 'https://cdn.simpleicons.org/github/181717' },
 ];
 
@@ -37,7 +48,6 @@ const TechStack: React.FC<TechStackProps> = ({ t }) => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4">
-        {/* Adjusted gap and sizes to be smaller and more compact */}
         <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-6 md:gap-x-12">
           {tools.map((tool, idx) => (
             <motion.div 
@@ -53,9 +63,11 @@ const TechStack: React.FC<TechStackProps> = ({ t }) => {
                 alt={tool.name} 
                 className="h-6 md:h-8 w-auto object-contain transition-transform group-hover:scale-110" 
               />
-              <span className="text-sm md:text-base font-semibold text-gray-700 whitespace-nowrap">
-                {tool.name}
-              </span>
+              {!tool.hideLabel && (
+                <span className="text-sm md:text-base font-semibold text-gray-700 whitespace-nowrap">
+                  {tool.name}
+                </span>
+              )}
             </motion.div>
           ))}
         </div>

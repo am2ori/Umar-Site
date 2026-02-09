@@ -7,6 +7,7 @@ export const translations = {
         { label: 'الرئيسية', href: '#hero' },
         { label: 'رؤيتي', href: '#about' },
         { label: 'منهجيتي', href: '#methodology' },
+        { label: 'خدماتي', href: '#services' },
         { label: 'أعمالي', href: '#portfolio' },
       ],
       cta: 'تواصل معي',
@@ -51,6 +52,29 @@ export const translations = {
         { title: 'التخطيط المرن', desc: 'تجزئة المشروع إلى مهام قابلة للتنفيذ.', step: '02' },
         { title: 'التنفيذ المعزز بالذكاء الاصطناعي', desc: 'دمج قدرات الذكاء الاصطناعي لاختصار الوقت.', step: '03' },
         { title: 'التسليم والتحسين', desc: 'إطلاق المنتج ومراقبة الأداء.', step: '04' }
+      ]
+    },
+    services: {
+      title: 'خدماتي وحلولي',
+      subtitle: 'قيادة تقنية شاملة من التخطيط وحتى التنفيذ الفعلي.',
+      ctaLabel: 'اطلب الخدمة الآن',
+      defaultWhatsappMessage: 'السلام عليكم، أريد الاستفسار عن خدماتك التقنية.',
+      items: [
+        {
+          title: 'قيادة المشاريع التقنية',
+          desc: 'إدارة فرق التطوير وضمان تسليم المشاريع المعقدة في وقتها المحدد وفق معايير PMP.',
+          whatsappMessage: 'السلام عليكم، أريد الاستفسار عن خدمة "قيادة المشاريع التقنية".'
+        },
+        {
+          title: 'تطوير المنصات والهوية الرقمية',
+          desc: 'بناء حلول برمجية متكاملة ومنصات قابلة للتوسع، ويشمل ذلك المدونات الشخصية الاحترافية لتعزيز هويتك الرقمية.',
+          whatsappMessage: 'السلام عليكم، أريد الاستفسار عن خدمة "تطوير المنصات والهوية الرقمية".'
+        },
+        {
+          title: 'استشارات بناء المنتجات',
+          desc: 'تحويل الأفكار إلى منتجات أولية (MVP) جاهزة للسوق بكفاءة عالية وتركيز على القيمة.',
+          whatsappMessage: 'السلام عليكم، أريد الاستفسار عن خدمة "استشارات بناء المنتجات (MVP)".'
+        }
       ]
     },
     techStack: {
@@ -101,6 +125,7 @@ export const translations = {
         { label: 'Home', href: '#hero' },
         { label: 'My Vision', href: '#about' },
         { label: 'Methodology', href: '#methodology' },
+        { label: 'Services', href: '#services' },
         { label: 'Projects', href: '#portfolio' },
       ],
       cta: "Let's Talk",
@@ -145,6 +170,29 @@ export const translations = {
         { title: 'Agile Planning', desc: 'Breaking down projects into Sprints.', step: '02' },
         { title: 'AI-Augmented Execution', desc: 'Leveraging AI to cut time.', step: '03' },
         { title: 'Delivery & Optimization', desc: 'Launch and performance monitoring.', step: '04' }
+      ]
+    },
+    services: {
+      title: 'Services & Solutions',
+      subtitle: 'Comprehensive technical leadership from strategy to execution.',
+      ctaLabel: 'Inquire Now',
+      defaultWhatsappMessage: 'Hello, I would like to inquire about your technical services.',
+      items: [
+        {
+          title: 'Technical Project Leadership',
+          desc: 'Leading dev teams and ensuring delivery of complex projects on time using PMP & Agile standards.',
+          whatsappMessage: 'Hello, I would like to inquire about "Technical Project Leadership".'
+        },
+        {
+          title: 'Custom Software & Platforms',
+          desc: 'Engineering robust software solutions and scalable platforms, including professional personal blogs to elevate your digital branding.',
+          whatsappMessage: 'Hello, I would like to inquire about "Custom Software & Platforms".'
+        },
+        {
+          title: 'Product Strategy & MVP',
+          desc: "Taking you from 'Idea' to 'Market-Ready MVP' efficiently, focusing on business value.",
+          whatsappMessage: 'Hello, I would like to inquire about "Product Strategy & MVP Consulting".'
+        }
       ]
     },
     techStack: {
