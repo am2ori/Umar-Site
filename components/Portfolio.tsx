@@ -48,6 +48,8 @@ const Portfolio: React.FC<PortfolioProps> = ({ onContactClick, t }) => {
                         alt={project.title} 
                         loading="lazy"
                         decoding="async"
+                        width="80"
+                        height="80"
                         className="w-full h-full object-contain"
                     />
                  </div>
@@ -69,7 +71,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ onContactClick, t }) => {
                 <div className="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
                     <div className="flex flex-wrap gap-2">
                         {project.tags.slice(0, 3).map(tag => (
-                            <span key={tag} className="text-[10px] md:text-xs font-medium text-gray-500 bg-gray-50 px-2.5 py-1.5 rounded-lg">
+                            <span key={tag} className="text-[10px] md:text-xs font-medium text-gray-600 bg-gray-50 px-2.5 py-1.5 rounded-lg">
                             #{tag}
                             </span>
                         ))}

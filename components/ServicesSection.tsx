@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Code, Lightbulb, ArrowUpLeft, ArrowUpRight } from 'lucide-react';
@@ -56,7 +57,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ t, lang, onContactCli
               {t.title}
             </h2>
             <div className="w-20 h-1.5 bg-primary mx-auto rounded-full mb-6"></div>
-            <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed font-medium">
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-medium">
               {t.subtitle}
             </p>
           </motion.div>

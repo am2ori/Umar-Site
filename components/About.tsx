@@ -70,7 +70,7 @@ const About: React.FC<AboutProps> = ({ t }) => {
                         <Activity className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                       </div>
                       <div>
-                        <p className="text-[10px] md:text-xs text-gray-500 font-bold uppercase tracking-wider">{t.imgBadgeTitle}</p>
+                        <p className="text-[10px] md:text-xs text-gray-600 font-bold uppercase tracking-wider">{t.imgBadgeTitle}</p>
                         <p className="text-gray-900 font-bold text-base md:text-lg">{t.imgBadgeValue}</p>
                       </div>
                    </div>
@@ -89,7 +89,7 @@ const About: React.FC<AboutProps> = ({ t }) => {
             <span className="text-primary font-bold tracking-wider text-sm uppercase mb-3 block">{t.badge}</span>
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               {t.title} <br/>
-              <span className="text-gray-400">{t.subtitle}</span>
+              <span className="text-gray-500">{t.subtitle}</span>
             </h2>
             
             <div className="space-y-4 md:space-y-6 text-base md:text-lg text-gray-600 leading-relaxed mb-8 md:mb-10">
@@ -113,7 +113,7 @@ const About: React.FC<AboutProps> = ({ t }) => {
                     {icons[idx]}
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900 text-base md:text-lg">{item.label}</h4>
+                    <h3 className="font-bold text-gray-900 text-base md:text-lg">{item.label}</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 </motion.div>

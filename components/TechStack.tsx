@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -61,6 +62,10 @@ const TechStack: React.FC<TechStackProps> = ({ t }) => {
               <img 
                 src={tool.iconUrl} 
                 alt={tool.name} 
+                width="32"
+                height="32"
+                loading="lazy"
+                decoding="async"
                 className="h-6 md:h-8 w-auto object-contain transition-transform group-hover:scale-110" 
               />
               {!tool.hideLabel && (

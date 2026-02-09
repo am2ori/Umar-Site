@@ -128,7 +128,7 @@ const Hero: React.FC<HeroProps> = ({ onContactClick, t, lang }) => {
               {t.rolePrefix} <span className="text-primary">{t.roleSuffix}</span>
             </h1>
             
-            <p className="text-base md:text-xl text-gray-500 leading-relaxed max-w-2xl mb-8 font-medium">
+            <p className="text-base md:text-xl text-gray-600 leading-relaxed max-w-2xl mb-8 font-medium">
               {t.subtext}
             </p>
 

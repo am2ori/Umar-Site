@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Search, Calendar, Sparkles, Rocket } from 'lucide-react';
@@ -33,7 +34,7 @@ const Methodology: React.FC<MethodologyProps> = ({ t, lang }) => {
           >
             {t.title}
           </motion.h2>
-          <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
             {t.subtitle}
           </p>
         </div>
