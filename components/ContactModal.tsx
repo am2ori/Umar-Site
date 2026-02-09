@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail } from 'lucide-react';
+import { X, Mail, Check, Copy, ExternalLink } from 'lucide-react';
 
 // Custom WhatsApp Icon
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -20,78 +20,134 @@ interface ContactModalProps {
 }
 
 const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, t, customMessage }) => {
+  const [copied, setCopied] = useState(false);
   const phoneNumber = '966552038349';
+  const email = 'info@umarali.cc';
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(customMessage || '')}`;
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60]"
+            className="absolute inset-0 bg-gray-900/60 backdrop-blur-md"
           />
 
-          {/* Modal */}
+          {/* Modal Container */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="fixed inset-0 z-[70] flex items-center justify-center p-4 pointer-events-none"
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className="relative bg-white w-full max-w-lg rounded-[2.5rem] shadow-2xl overflow-hidden border border-white"
           >
-            <div className="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-md pointer-events-auto overflow-hidden">
-              <div className="p-8 md:p-10 relative">
-                <button
-                  onClick={onClose}
-                  className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors bg-gray-50 rounded-full p-2"
+            {/* Header with Decorative Background */}
+            <div className="relative p-8 md:p-10 bg-gradient-to-br from-blue-50 via-white to-transparent overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+              
+              <button
+                onClick={onClose}
+                className="absolute top-6 right-6 p-2 rounded-full bg-white/80 border border-gray-100 text-gray-400 hover:text-primary transition-all shadow-sm z-10"
+              >
+                <X size={20} />
+              </button>
+
+              <div className="relative z-10 text-center">
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 border border-green-100 text-green-600 text-[10px] font-bold uppercase tracking-wider mb-4"
                 >
-                  <X size={20} />
-                </button>
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  Available Now
+                </motion.div>
+                
+                <h3 className="text-3xl font-bold text-gray-900 mb-2 leading-tight">
+                  {t.title}
+                </h3>
+                <p className="text-gray-500 text-base md:text-lg max-w-sm mx-auto">
+                  {t.subtitle}
+                </p>
+              </div>
+            </div>
 
-                <div className="text-center mb-10">
-                  <h3 className="text-3xl font-bold text-gray-900 mb-3">{t.title}</h3>
-                  <p className="text-gray-600 text-lg">{t.subtitle}</p>
+            {/* Action Cards */}
+            <div className="p-6 md:p-8 space-y-4">
+              {/* WhatsApp Card */}
+              <motion.a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="group flex items-center justify-between p-5 rounded-3xl bg-green-500 text-white shadow-lg shadow-green-500/20 transition-all border border-green-400"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="bg-white/20 p-3 rounded-2xl backdrop-blur-sm group-hover:bg-white group-hover:text-green-600 transition-colors">
+                    <WhatsAppIcon className="w-8 h-8" />
+                  </div>
+                  <div className="text-start">
+                    <p className="font-bold text-xl leading-none mb-1">WhatsApp</p>
+                    <p className="text-sm font-medium opacity-80" dir="ltr">+966 55 203 8349</p>
+                  </div>
                 </div>
+                <div className="bg-white/20 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all">
+                  <ExternalLink size={18} />
+                </div>
+              </motion.a>
 
-                <div className="space-y-5">
-                  {/* WhatsApp */}
-                  <a
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-5 p-5 rounded-2xl bg-green-50 text-green-700 hover:bg-green-100 transition-all group border border-green-100/50 shadow-sm"
+              {/* Email Card */}
+              <div className="group relative flex items-center justify-between p-5 rounded-3xl bg-gray-50 border border-gray-100 hover:bg-white hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-blue-500/5">
+                <div className="flex items-center gap-4">
+                  <div className="bg-blue-50 p-3 rounded-2xl text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                    <Mail className="w-8 h-8" />
+                  </div>
+                  <div className="text-start">
+                    <p className="font-bold text-xl leading-none mb-1 text-gray-900">Email</p>
+                    <p className="text-sm font-medium text-gray-500 truncate max-w-[150px] md:max-w-none">info@umarali.cc</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-2">
+                  <button 
+                    onClick={copyEmail}
+                    className="p-3 rounded-xl bg-white border border-gray-100 text-gray-400 hover:text-primary hover:border-primary/50 transition-all shadow-sm"
+                    title="Copy Email"
                   >
-                    <div className="bg-white p-3 rounded-xl shadow-sm group-hover:scale-110 transition-transform">
-                      <WhatsAppIcon className="w-8 h-8" />
-                    </div>
-                    <div className="text-end flex-1">
-                      <p className="font-bold text-xl mb-0.5">WhatsApp</p>
-                      <p className="text-sm font-medium opacity-80 leading-none" dir="ltr">+966 55 203 8349</p>
-                    </div>
-                  </a>
-
-                  {/* Email */}
-                  <a
-                    href="mailto:info@umarali.cc"
-                    className="flex items-center gap-5 p-5 rounded-2xl bg-blue-50 text-blue-700 hover:bg-blue-100 transition-all group border border-blue-100/50 shadow-sm"
+                    {copied ? <Check size={18} className="text-green-500" /> : <Copy size={18} />}
+                  </button>
+                  <a 
+                    href={`mailto:${email}`}
+                    className="p-3 rounded-xl bg-primary text-white hover:bg-blue-700 transition-all shadow-md shadow-blue-500/10"
+                    title="Send Email"
                   >
-                    <div className="bg-white p-3 rounded-xl shadow-sm group-hover:scale-110 transition-transform">
-                      <Mail className="w-8 h-8" />
-                    </div>
-                    <div className="text-end flex-1">
-                      <p className="font-bold text-xl mb-0.5">Email</p>
-                      <p className="text-sm font-medium opacity-80 leading-none">info@umarali.cc</p>
-                    </div>
+                    <ExternalLink size={18} />
                   </a>
                 </div>
               </div>
             </div>
+
+            {/* Footer Text */}
+            <div className="px-8 pb-8 text-center">
+              <p className="text-xs text-gray-400 font-medium tracking-wide">
+                LET'S TURN YOUR VISION INTO REALITY
+              </p>
+            </div>
           </motion.div>
-        </>
+        </div>
       )}
     </AnimatePresence>
   );

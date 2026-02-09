@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, ShieldCheck, Lightbulb, Activity } from 'lucide-react';
@@ -15,21 +16,20 @@ interface AboutProps {
 }
 
 const About: React.FC<AboutProps> = ({ t }) => {
-  // Stagger variants for list items
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
       },
     },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 15 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
   };
 
   const icons = [
@@ -46,23 +46,24 @@ const About: React.FC<AboutProps> = ({ t }) => {
           {/* Visual Side */}
           <motion.div
             className="relative order-1 lg:order-1 h-[350px] md:h-[500px] w-full"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-blue-900/10 border border-white/50 group h-full">
-                {/* Image: Abstract Growth/Pathway - KEEP ASSET */}
+             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-blue-900/10 border border-white/50 group h-full bg-gray-200">
                 <img 
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" 
-                  alt="Business Meeting Strategy" 
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=75&w=1000&auto=format&fit=crop" 
+                  alt="Business Strategy Planning" 
+                  loading="lazy"
+                  decoding="async"
+                  width="1000"
+                  height="667"
                   className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-1000 ease-out"
                 />
                 
-                {/* Elegant Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-900/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent"></div>
                 
-                {/* Floating Badge */}
                 <div className="absolute bottom-6 right-6 md:bottom-8 md:right-8 bg-white/95 backdrop-blur px-4 py-3 md:px-6 md:py-4 rounded-2xl shadow-lg border border-white/20">
                    <div className="flex items-center gap-3">
                       <div className="p-2 bg-blue-50 rounded-lg">
@@ -80,10 +81,10 @@ const About: React.FC<AboutProps> = ({ t }) => {
           {/* Text Content */}
           <motion.div
             className="order-2 lg:order-2"
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <span className="text-primary font-bold tracking-wider text-sm uppercase mb-3 block">{t.badge}</span>
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
@@ -92,9 +93,7 @@ const About: React.FC<AboutProps> = ({ t }) => {
             </h2>
             
             <div className="space-y-4 md:space-y-6 text-base md:text-lg text-gray-600 leading-relaxed mb-8 md:mb-10">
-              <p>
-                {t.body}
-              </p>
+              <p>{t.body}</p>
             </div>
 
             <motion.div 

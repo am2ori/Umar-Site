@@ -55,7 +55,7 @@ export const translations = {
       ]
     },
     services: {
-      title: 'خدماتي وحلولي',
+      title: 'خدماتي',
       subtitle: 'قيادة تقنية شاملة من التخطيط وحتى التنفيذ الفعلي.',
       ctaLabel: 'اطلب الخدمة الآن',
       defaultWhatsappMessage: 'السلام عليكم، أريد الاستفسار عن خدماتك التقنية.',
@@ -173,7 +173,7 @@ export const translations = {
       ]
     },
     services: {
-      title: 'Services & Solutions',
+      title: 'Services',
       subtitle: 'Comprehensive technical leadership from strategy to execution.',
       ctaLabel: 'Inquire Now',
       defaultWhatsappMessage: 'Hello, I would like to inquire about your technical services.',
