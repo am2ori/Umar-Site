@@ -77,15 +77,17 @@ const Portfolio: React.FC<PortfolioProps> = ({ onContactClick, t }) => {
                         ))}
                     </div>
                     
-                    <a 
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-primary transition-colors px-2"
-                    >
-                        <span>{t.cta.visit}</span>
-                        <ArrowUpLeft className="w-4 h-4 rtl:rotate-90" />
-                    </a>
+                    {project.link && (
+                      <a 
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-primary transition-colors px-2"
+                      >
+                          <span>{t.cta.visit}</span>
+                          <ArrowUpLeft className="w-4 h-4 rtl:rotate-90" />
+                      </a>
+                    )}
                 </div>
               </div>
             </motion.div>

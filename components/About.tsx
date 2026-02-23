@@ -39,7 +39,7 @@ const About: React.FC<AboutProps> = ({ t }) => {
   ];
 
   return (
-    <section id="about" className="py-16 md:py-24 bg-[#F9FAFB] relative overflow-hidden">
+    <section id="about" className="py-16 md:py-24 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 lg:gap-20 items-center">
           
@@ -86,13 +86,13 @@ const About: React.FC<AboutProps> = ({ t }) => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <span className="text-primary font-bold tracking-wider text-sm uppercase mb-3 block">{t.badge}</span>
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <span className="text-primary font-bold tracking-wider text-sm uppercase mb-3 block font-inter">{t.badge}</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight font-outfit tracking-tight">
               {t.title} <br/>
               <span className="text-gray-500">{t.subtitle}</span>
             </h2>
             
-            <div className="space-y-4 md:space-y-6 text-base md:text-lg text-gray-600 leading-relaxed mb-8 md:mb-10">
+            <div className="space-y-4 md:space-y-6 text-base md:text-lg text-gray-600 leading-relaxed mb-8 md:mb-10 font-inter">
               <p>{t.body}</p>
             </div>
 
@@ -113,8 +113,8 @@ const About: React.FC<AboutProps> = ({ t }) => {
                     {icons[idx]}
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 text-base md:text-lg">{item.label}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                    <h3 className="font-bold text-gray-900 text-base md:text-lg font-outfit">{item.label}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed font-inter">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}

@@ -8,7 +8,6 @@ export const translations = {
         { label: 'رؤيتي', href: '#about' },
         { label: 'منهجيتي', href: '#methodology' },
         { label: 'خدماتي', href: '#services' },
-        { label: 'أعمالي', href: '#portfolio' },
       ],
       cta: 'تواصل معي',
       name: 'عمر طاهر علي',
@@ -100,7 +99,6 @@ export const translations = {
           description: 'منصة تساعدك في إنشاء الموقع الإلكتروني الخاص بك بدون خبير تقني.',
           tags: ['SaaS', 'إدارة منتجات', 'نمو'],
           imageUrl: 'https://drive.google.com/thumbnail?id=1E6NAEDvHN67RpHZKMnGDm6eGdU3bZdss&sz=w500',
-          link: "https://webdoor.site",
           highlight: true,
         }
       ],
@@ -126,7 +124,6 @@ export const translations = {
         { label: 'My Vision', href: '#about' },
         { label: 'Methodology', href: '#methodology' },
         { label: 'Services', href: '#services' },
-        { label: 'Projects', href: '#portfolio' },
       ],
       cta: "Let's Talk",
       name: 'Umar Ali',
@@ -218,7 +215,6 @@ export const translations = {
           description: 'A platform helping you build your own website without tech expertise.',
           tags: ['SaaS', 'Product Mgmt', 'Growth'],
           imageUrl: 'https://drive.google.com/thumbnail?id=1E6NAEDvHN67RpHZKMnGDm6eGdU3bZdss&sz=w500',
-          link: "https://webdoor.site",
           highlight: true,
         }
       ],

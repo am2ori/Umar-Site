@@ -29,66 +29,61 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick, lang, toggleLang, t }) 
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F9FAFB]/90 backdrop-blur-lg border-b border-gray-100 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
-          
-          {/* Logo Name & Lang Switcher Wrapper */}
-          <div className="flex items-center gap-6">
-            <a 
-              href="#hero" 
-              onClick={(e) => scrollToSection(e, '#hero')}
-              className="text-2xl md:text-3xl font-bold text-gray-900 hover:text-primary transition-colors duration-300 tracking-tight"
+    <nav className="fixed top-4 left-0 right-0 z-50 transition-all duration-300 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="bg-white/70 backdrop-blur-md border border-gray-200/50 shadow-sm rounded-full px-6 py-3 md:py-4 flex items-center justify-between">
+        {/* Logo Name & Lang Switcher Wrapper */}
+        <div className="flex items-center gap-4 md:gap-6">
+          <a 
+            href="#hero" 
+            onClick={(e) => scrollToSection(e, '#hero')}
+            className="text-xl md:text-2xl font-bold text-gray-900 hover:text-primary transition-colors duration-300 tracking-tight font-outfit"
+          >
+            {t.name}
+          </a>
+
+          {/* Language Switcher (Desktop/Mobile) */}
+          <button
+            onClick={toggleLang}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200 hover:border-primary/50 bg-white/50 hover:bg-white text-sm font-semibold text-gray-600 hover:text-primary transition-all duration-300 group"
+          >
+            <Globe className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+            {/* Apply Arabic font specifically for the Arabic letter when in English mode */}
+            <span className={lang === 'en' ? 'font-arabic text-lg leading-none pt-0.5' : ''}>
+              {lang === 'ar' ? 'EN' : 'ع'}
+            </span>
+          </button>
+        </div>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-x-8">
+          {t.items.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              onClick={(e) => scrollToSection(e, item.href)}
+              className="text-gray-600 hover:text-primary relative group text-sm font-semibold transition-colors"
             >
-              {t.name}
+              {item.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
+          ))}
+          <button
+            onClick={onContactClick}
+            className="bg-primary text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-700 transition-all shadow-md shadow-blue-500/20 transform hover:-translate-y-0.5"
+          >
+            {t.cta}
+          </button>
+        </div>
 
-            {/* Language Switcher (Desktop/Mobile) */}
-            <button
-              onClick={toggleLang}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200 hover:border-primary/50 bg-white/50 hover:bg-white text-sm font-semibold text-gray-600 hover:text-primary transition-all duration-300 group"
-            >
-              <Globe className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-              {/* Apply Arabic font specifically for the Arabic letter when in English mode */}
-              <span className={lang === 'en' ? 'font-arabic text-lg leading-none pt-0.5' : ''}>
-                {lang === 'ar' ? 'EN' : 'ع'}
-              </span>
-            </button>
-          </div>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <div className="flex items-center gap-x-10">
-              {t.items.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={(e) => scrollToSection(e, item.href)}
-                  className="text-gray-600 hover:text-primary relative group text-base font-semibold transition-colors"
-                >
-                  {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              ))}
-              <button
-                onClick={onContactClick}
-                className="bg-primary text-white px-7 py-3 rounded-xl text-base font-medium hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20 transform hover:-translate-y-0.5"
-              >
-                {t.cta}
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="-ml-2 flex md:hidden">
-            <button
-              onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-primary focus:outline-none"
-            >
-              <span className="sr-only">Menu</span>
-              {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
-            </button>
-          </div>
+        {/* Mobile menu button */}
+        <div className="flex md:hidden">
+          <button
+            onClick={toggleMenu}
+            className="inline-flex items-center justify-center p-2 rounded-full text-gray-600 hover:text-primary hover:bg-gray-100 focus:outline-none transition-colors"
+          >
+            <span className="sr-only">Menu</span>
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
       </div>
 
@@ -96,31 +91,34 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick, lang, toggleLang, t }) 
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-gray-200 overflow-hidden"
+            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden absolute top-full left-4 right-4 mt-2 bg-white/90 backdrop-blur-lg border border-gray-200/50 rounded-2xl shadow-xl overflow-hidden"
           >
-            <div className="px-4 pt-4 pb-6 space-y-2">
+            <div className="px-4 py-6 space-y-2">
               {t.items.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
                   onClick={(e) => scrollToSection(e, item.href)}
-                  className="text-gray-600 hover:text-primary hover:bg-gray-50 block px-3 py-3 rounded-lg text-lg font-medium transition-colors"
+                  className="text-gray-600 hover:text-primary hover:bg-gray-50 block px-4 py-3 rounded-xl text-base font-medium transition-colors"
                 >
                   {item.label}
                 </a>
               ))}
-              <button
-                onClick={() => {
-                  setIsOpen(false);
-                  onContactClick();
-                }}
-                className="block w-full text-center bg-primary text-white px-5 py-4 rounded-xl text-lg font-medium hover:bg-blue-700 mt-6 shadow-md"
-              >
-                {t.cta}
-              </button>
+              <div className="pt-4 px-2">
+                <button
+                  onClick={() => {
+                    setIsOpen(false);
+                    onContactClick();
+                  }}
+                  className="block w-full text-center bg-primary text-white px-5 py-3.5 rounded-xl text-base font-medium hover:bg-blue-700 shadow-md transition-colors"
+                >
+                  {t.cta}
+                </button>
+              </div>
             </div>
           </motion.div>
         )}

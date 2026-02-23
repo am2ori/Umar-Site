@@ -12,7 +12,7 @@ const tools: Tool[] = [
   // Productivity & PM
   { name: 'Jira', iconUrl: 'https://cdn.simpleicons.org/jira/0052CC' },
   { name: 'Trello', iconUrl: 'https://cdn.simpleicons.org/trello/0079BF' },
-  { name: 'Slack', iconUrl: 'https://cdn.simpleicons.org/slack/4A154B' },
+  { name: 'Slack', iconUrl: 'https://api.iconify.design/logos:slack-icon.svg' },
   { name: 'Microsoft 365', iconUrl: 'https://api.iconify.design/logos:microsoft-icon.svg' },
   { name: 'Google Workspace', iconUrl: 'https://api.iconify.design/logos:google-workspace.svg', hideLabel: true },
   { name: 'Miro', iconUrl: 'https://cdn.simpleicons.org/miro/050038' },
@@ -43,9 +43,9 @@ interface TechStackProps {
 
 const TechStack: React.FC<TechStackProps> = ({ t }) => {
   return (
-    <section className="py-12 md:py-16 bg-[#F9FAFB] border-b border-gray-100">
+    <section className="py-12 md:py-16 bg-transparent border-b border-gray-100 relative z-10">
       <div className="max-w-7xl mx-auto px-4 mb-8 md:mb-10 text-center">
-        <h2 className="text-base md:text-lg text-gray-500 font-medium tracking-wide">{t.title}</h2>
+        <h2 className="text-base md:text-lg text-gray-500 font-medium tracking-wide font-outfit">{t.title}</h2>
       </div>
 
       <div className="max-w-7xl mx-auto px-4">
@@ -69,7 +69,7 @@ const TechStack: React.FC<TechStackProps> = ({ t }) => {
                 className="h-6 md:h-8 w-auto object-contain transition-transform group-hover:scale-110" 
               />
               {!tool.hideLabel && (
-                <span className="text-sm md:text-base font-semibold text-gray-700 whitespace-nowrap">
+                <span className="text-sm md:text-base font-semibold text-gray-700 whitespace-nowrap font-inter">
                   {tool.name}
                 </span>
               )}

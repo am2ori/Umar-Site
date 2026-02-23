@@ -110,7 +110,7 @@ const Hero: React.FC<HeroProps> = ({ onContactClick, t, lang }) => {
   const isRTL = lang === 'ar';
   
   return (
-    <section id="hero" className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-[#F9FAFB]">
+    <section id="hero" className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-transparent">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-24">
           
@@ -124,11 +124,11 @@ const Hero: React.FC<HeroProps> = ({ onContactClick, t, lang }) => {
               {t.badge}
             </span>
             
-            <h1 className={`text-3xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight`}>
+            <h1 className={`text-3xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight font-outfit tracking-tight`}>
               {t.rolePrefix} <span className="text-primary">{t.roleSuffix}</span>
             </h1>
             
-            <p className="text-base md:text-xl text-gray-600 leading-relaxed max-w-2xl mb-8 font-medium">
+            <p className="text-base md:text-xl text-gray-600 leading-relaxed max-w-2xl mb-8 font-medium font-inter">
               {t.subtext}
             </p>
 
