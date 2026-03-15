@@ -53,7 +53,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ t, lang, onContactCli
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 font-outfit tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-6 font-outfit tracking-tight">
               {t.title}
             </h2>
             <div className="w-20 h-1.5 bg-primary mx-auto rounded-full mb-6"></div>
@@ -75,7 +75,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ t, lang, onContactCli
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group relative bg-white p-8 md:p-10 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 hover:border-primary/20 transition-all duration-500 flex flex-col h-full"
+              className="group relative bg-white p-8 md:p-10 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 hover:border-primary/20 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full"
             >
               {/* Subtle background element */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[4rem] -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -86,7 +86,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ t, lang, onContactCli
               </div>
 
               {/* Content */}
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors leading-tight font-outfit">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors leading-tight font-outfit">
                 {service.title}
               </h3>
               <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-8 font-inter">

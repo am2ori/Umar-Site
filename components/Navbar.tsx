@@ -30,13 +30,13 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick, lang, toggleLang, t }) 
 
   return (
     <nav className="fixed top-4 left-0 right-0 z-50 transition-all duration-300 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="bg-white/70 backdrop-blur-md border border-gray-200/50 shadow-sm rounded-full px-6 py-3 md:py-4 flex items-center justify-between">
+      <div className="bg-white/60 backdrop-blur-xl border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(37,99,235,0.08)] transition-shadow duration-500 rounded-full px-6 py-3 md:py-4 flex items-center justify-between">
         {/* Logo Name & Lang Switcher Wrapper */}
         <div className="flex items-center gap-4 md:gap-6">
           <a 
             href="#hero" 
             onClick={(e) => scrollToSection(e, '#hero')}
-            className="text-xl md:text-2xl font-bold text-gray-900 hover:text-primary transition-colors duration-300 tracking-tight font-outfit"
+            className="text-xl md:text-2xl font-bold text-gray-800 hover:text-primary transition-colors duration-300 tracking-tight font-outfit"
           >
             {t.name}
           </a>

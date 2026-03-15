@@ -25,7 +25,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ onContactClick, t }) => {
         
         {/* Header */}
         <div className="mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">{t.title}</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4">{t.title}</h2>
         </div>
 
         {/* Projects Grid */}
@@ -60,7 +60,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ onContactClick, t }) => {
               </div>
 
               <div className="flex flex-col flex-grow">
-                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-colors">
                     {project.title}
                 </h3>
                 

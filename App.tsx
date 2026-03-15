@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -6,6 +7,7 @@ import QuoteSection from './components/QuoteSection';
 import Methodology from './components/Methodology';
 import ServicesSection from './components/ServicesSection';
 import TechStack from './components/TechStack';
+import HattLinkSection from './components/HattLinkSection';
 import Footer from './components/Footer';
 import ContactModal from './components/ContactModal';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -34,11 +36,27 @@ function App() {
   }, [lang]);
 
   return (
-    <div className={`min-h-screen bg-white text-gray-900 scroll-smooth relative ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
-      {/* Subtle Mesh Gradient Background */}
+    <div className={`min-h-screen bg-white text-gray-800 scroll-smooth relative ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
+      {/* Subtle Animated Mesh Gradient Background */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/5 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-primary/5 blur-[120px]" />
+        <motion.div 
+          animate={{ 
+            x: [0, 50, 0], 
+            y: [0, 30, 0],
+            scale: [1, 1.1, 1]
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/10 blur-[120px]" 
+        />
+        <motion.div 
+          animate={{ 
+            x: [0, -50, 0], 
+            y: [0, -30, 0],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-400/10 blur-[120px]" 
+        />
       </div>
 
       <ProgressBar />
@@ -66,6 +84,7 @@ function App() {
           onContactClick={(msg) => openContactModal(msg)} 
         />
         <TechStack t={t.techStack} />
+        <HattLinkSection t={t.hattLink} lang={lang} />
       </main>
       <Footer t={t.footer} />
       <ContactModal 

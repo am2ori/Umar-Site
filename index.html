@@ -11,7 +11,7 @@
     
     <meta
       name="description"
-      content="الموقع الرسمي لعمر طاهر علي، مدير مشاريع تقنية ومُمكن للذكاء الاصطناعي. أساعد الشركات في التحول الرقمي وربط أهداف الأعمال بالحلول التقنية."
+      content="الموقع الرسمي لعمر طاهر علي، مدير مشاريع تقنية ومُمكن للذكاء الإصطناعي. أساعد الشركات في التحول الرقمي وربط أهداف الأعمال بالحلول التقنية."
     />
 
     <!-- Resource Hints for Performance -->
@@ -24,7 +24,7 @@
     <!-- SEO & GEO: Keywords -->
     <meta 
       name="keywords" 
-      content="عمر طاهر علي, Umar Ali, مدير مشاريع, Project Manager, AI Enabler, ذكاء اصطناعي, تحول رقمي, Digital Transformation" 
+      content="عمر طاهر علي, Umar Ali, مدير مشاريع, Project Manager, AI Enabler, ذكاء إصطناعي, تحول رقمي, Digital Transformation" 
     />
 
     <!-- Custom Geometric Node Favicon -->
@@ -52,6 +52,19 @@
             },
             animation: {
               'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'gradient-x': 'gradient-x 3s ease infinite',
+            },
+            keyframes: {
+              'gradient-x': {
+                '0%, 100%': {
+                  'background-size': '200% 200%',
+                  'background-position': 'left center'
+                },
+                '50%': {
+                  'background-size': '200% 200%',
+                  'background-position': 'right center'
+                }
+              }
             }
           },
         },
@@ -91,7 +104,7 @@
   }
 </style>
 </head>
-  <body class="bg-[#F9FAFB] text-gray-900 antialiased overflow-x-hidden">
+  <body class="bg-[#F9FAFB] text-gray-800 antialiased overflow-x-hidden">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

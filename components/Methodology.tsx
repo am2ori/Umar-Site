@@ -27,7 +27,7 @@ const Methodology: React.FC<MethodologyProps> = ({ t, lang }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-10 md:mb-16">
           <motion.h2 
-            className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 font-outfit tracking-tight"
+            className="text-3xl md:text-5xl font-bold text-gray-800 mb-4 font-outfit tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -67,7 +67,7 @@ const Methodology: React.FC<MethodologyProps> = ({ t, lang }) => {
                 </div>
 
                 {/* Card */}
-                <div className="w-full bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-blue-200/50 transition-all duration-300 group h-full hover:-translate-y-1">
+                <div className="w-full bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 hover:border-primary/20 transition-all duration-500 group h-full hover:-translate-y-2">
                    {/* Layout: Icon + Title */}
                    <div className="flex flex-row lg:flex-col items-center lg:items-start gap-4 mb-4">
                       {/* Icon */}
@@ -81,7 +81,7 @@ const Methodology: React.FC<MethodologyProps> = ({ t, lang }) => {
                       </span>
                    </div>
                    
-                   <h3 className="text-lg font-bold text-gray-900 mb-2 font-outfit">{step.title}</h3>
+                   <h3 className="text-lg font-bold text-gray-800 mb-2 font-outfit">{step.title}</h3>
                    <p className="text-gray-600 text-sm leading-relaxed font-inter">
                      {step.desc}
                    </p>

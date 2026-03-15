@@ -124,8 +124,9 @@ const Hero: React.FC<HeroProps> = ({ onContactClick, t, lang }) => {
               {t.badge}
             </span>
             
-            <h1 className={`text-3xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight font-outfit tracking-tight`}>
-              {t.rolePrefix} <span className="text-primary">{t.roleSuffix}</span>
+            <h1 className={`text-3xl md:text-5xl lg:text-6xl font-extrabold text-gray-800 mb-6 leading-tight font-outfit tracking-tight flex flex-col gap-2 md:gap-4`}>
+              <span>{t.rolePrefix}</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-blue-400 to-indigo-600 animate-gradient-x pb-2">{t.roleSuffix}</span>
             </h1>
             
             <p className="text-base md:text-xl text-gray-600 leading-relaxed max-w-2xl mb-8 font-medium font-inter">

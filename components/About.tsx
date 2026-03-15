@@ -71,7 +71,7 @@ const About: React.FC<AboutProps> = ({ t }) => {
                       </div>
                       <div>
                         <p className="text-[10px] md:text-xs text-gray-600 font-bold uppercase tracking-wider">{t.imgBadgeTitle}</p>
-                        <p className="text-gray-900 font-bold text-base md:text-lg">{t.imgBadgeValue}</p>
+                        <p className="text-gray-800 font-bold text-base md:text-lg">{t.imgBadgeValue}</p>
                       </div>
                    </div>
                 </div>
@@ -87,7 +87,7 @@ const About: React.FC<AboutProps> = ({ t }) => {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <span className="text-primary font-bold tracking-wider text-sm uppercase mb-3 block font-inter">{t.badge}</span>
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight font-outfit tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-6 leading-tight font-outfit tracking-tight">
               {t.title} <br/>
               <span className="text-gray-500">{t.subtitle}</span>
             </h2>
@@ -113,7 +113,7 @@ const About: React.FC<AboutProps> = ({ t }) => {
                     {icons[idx]}
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 text-base md:text-lg font-outfit">{item.label}</h3>
+                    <h3 className="font-bold text-gray-800 text-base md:text-lg font-outfit">{item.label}</h3>
                     <p className="text-gray-600 text-sm leading-relaxed font-inter">{item.desc}</p>
                   </div>
                 </motion.div>

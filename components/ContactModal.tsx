@@ -75,7 +75,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, t, customM
                   Available Now
                 </motion.div>
                 
-                <h3 className="text-3xl font-bold text-gray-900 mb-2 leading-tight">
+                <h3 className="text-3xl font-bold text-gray-800 mb-2 leading-tight">
                   {t.title}
                 </h3>
                 <p className="text-gray-500 text-base md:text-lg max-w-sm mx-auto">
@@ -116,7 +116,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, t, customM
                     <Mail className="w-8 h-8" />
                   </div>
                   <div className="text-start">
-                    <p className="font-bold text-xl leading-none mb-1 text-gray-900">Email</p>
+                    <p className="font-bold text-xl leading-none mb-1 text-gray-800">Email</p>
                     <p className="text-sm font-medium text-gray-500 truncate max-w-[150px] md:max-w-none">info@umarali.cc</p>
                   </div>
                 </div>

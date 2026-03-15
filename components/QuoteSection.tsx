@@ -27,7 +27,7 @@ const QuoteSection: React.FC<QuoteProps> = ({ t }) => {
                     <Quote size={24} className="rotate-180 md:w-8 md:h-8" />
                 </div>
                 
-                <h2 className="text-2xl md:text-5xl font-bold text-gray-900 leading-relaxed md:leading-relaxed tracking-tight font-outfit">
+                <h2 className="text-2xl md:text-5xl font-bold text-gray-800 leading-relaxed md:leading-relaxed tracking-tight font-outfit">
                     "{t.text}"
                 </h2>
                 

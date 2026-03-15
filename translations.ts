@@ -8,15 +8,16 @@ export const translations = {
         { label: 'رؤيتي', href: '#about' },
         { label: 'منهجيتي', href: '#methodology' },
         { label: 'خدماتي', href: '#services' },
+        { label: 'هات لينك', href: '#hattlink' },
       ],
       cta: 'تواصل معي',
       name: 'عمر طاهر علي',
     },
     hero: {
-      badge: 'إدارة مشاريع • ابتكار • ذكاء اصطناعي',
+      badge: 'إدارة مشاريع • ابتكار • ذكاء إصطناعي',
       rolePrefix: 'مدير مشاريع تقنية',
-      roleSuffix: ' ومُمكن للذكاء الاصطناعي',
-      subtext: 'حلقة وصل بين أهداف الأعمال والحلول التقنية. أشرف على تنفيذ المشاريع الرقمية بدقة، وأوظف أدوات الذكاء الاصطناعي لضمان سرعة الإنجاز ورفع الجودة.',
+      roleSuffix: 'وممكن للذكاء الإصطناعي',
+      subtext: 'حلقة وصل بين أهداف الأعمال والحلول التقنية. أشرف على تنفيذ المشاريع الرقمية بدقة، وأوظف أدوات الذكاء الإصطناعي لضمان سرعة الإنجاز ورفع الجودة.',
       cta: 'تواصل معي',
       cert1: 'ماجستير إدارة أعمال تنفيذي (EMBA)',
       cert2: 'مُحترف إدارة مشاريع (PMP®)',
@@ -24,11 +25,11 @@ export const translations = {
         'إدارة المشاريع',
         'استشارات الأعمال',
         'التحول الرقمي',
-        'أدوات الذكاء الاصطناعي'
+        'أدوات الذكاء الإصطناعي'
       ]
     },
     quote: {
-      text: 'أؤمن بأن الذكاء الاصطناعي هو المحرك الجديد لكفاءة المشاريع ونجاحها.'
+      text: 'أؤمن بأن الذكاء الإصطناعي هو المحرك الجديد لكفاءة المشاريع ونجاحها.'
     },
     about: {
       badge: 'الرؤية والمسار',
@@ -49,7 +50,7 @@ export const translations = {
       steps: [
         { title: 'التحليل والوضوح', desc: 'فهم عميق للمتطلبات.', step: '01' },
         { title: 'التخطيط المرن', desc: 'تجزئة المشروع إلى مهام قابلة للتنفيذ.', step: '02' },
-        { title: 'التنفيذ المعزز بالذكاء الاصطناعي', desc: 'دمج قدرات الذكاء الاصطناعي لاختصار الوقت.', step: '03' },
+        { title: 'التنفيذ المعزز بالذكاء الإصطناعي', desc: 'دمج قدرات الذكاء الإصطناعي لاختصار الوقت.', step: '03' },
         { title: 'التسليم والتحسين', desc: 'إطلاق المنتج ومراقبة الأداء.', step: '04' }
       ]
     },
@@ -104,10 +105,16 @@ export const translations = {
       ],
       cta: {
         title: 'هل لديك مشروع طموح؟',
-        sub: 'لا تكتفِ بالتنفيذ التقليدي. دعنا ندمج دقة إدارة المشاريع مع قوة الذكاء الاصطناعي.',
+        sub: 'لا تكتفِ بالتنفيذ التقليدي. دعنا ندمج دقة إدارة المشاريع مع قوة الذكاء الإصطناعي.',
         button: 'تواصل معي الآن',
         visit: 'زيارة'
       }
+    },
+    hattLink: {
+      badge: 'منتج جديد',
+      title: 'تعرف على هات لينك',
+      description: 'خدمة مبتكرة طورتها لتسهيل جمع ومشاركة جميع روابطك المهمة في صفحة واحدة أنيقة واحترافية. جربها الآن واصنع هويتك الرقمية المجمعة بسهولة.',
+      cta: 'جرب الخدمة الآن',
     },
     footer: {
       rights: 'جميع الحقوق محفوظة 2026 عمر طاهر علي.'
@@ -124,6 +131,7 @@ export const translations = {
         { label: 'My Vision', href: '#about' },
         { label: 'Methodology', href: '#methodology' },
         { label: 'Services', href: '#services' },
+        { label: 'Hatt Link', href: '#hattlink' },
       ],
       cta: "Let's Talk",
       name: 'Umar Ali',
@@ -131,7 +139,7 @@ export const translations = {
     hero: {
       badge: 'Project Management • Innovation • AI',
       rolePrefix: 'Tech Project Manager',
-      roleSuffix: ' & AI Enabler',
+      roleSuffix: '& AI Enabler',
       subtext: 'Bridging the gap between business goals and technical execution. I lead digital projects with precision and leverage AI to ensure speed and quality.',
       cta: "Let's Talk",
       cert1: 'Executive MBA - Quantic',
@@ -224,6 +232,12 @@ export const translations = {
         button: 'Discuss Your Project',
         visit: 'Visit'
       }
+    },
+    hattLink: {
+      badge: 'New Product',
+      title: 'Discover Hatt Link',
+      description: 'An innovative service I developed to help you collect and share all your important links in one elegant, professional page. Try it now and build your unified digital identity.',
+      cta: 'Try it Now',
     },
     footer: {
       rights: '© 2026 Umar Ali. All Rights Reserved.'
