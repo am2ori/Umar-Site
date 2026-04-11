@@ -7,7 +7,7 @@ import QuoteSection from './components/QuoteSection';
 import Methodology from './components/Methodology';
 import ServicesSection from './components/ServicesSection';
 import TechStack from './components/TechStack';
-import HattLinkSection from './components/HattLinkSection';
+import ProductsSection from './components/ProductsSection';
 import Footer from './components/Footer';
 import ContactModal from './components/ContactModal';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -84,7 +84,7 @@ function App() {
           onContactClick={(msg) => openContactModal(msg)} 
         />
         <TechStack t={t.techStack} />
-        <HattLinkSection t={t.hattLink} lang={lang} />
+        <ProductsSection t={t.products} lang={lang} />
       </main>
       <Footer t={t.footer} />
       <ContactModal 

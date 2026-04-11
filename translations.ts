@@ -8,7 +8,7 @@ export const translations = {
         { label: 'رؤيتي', href: '#about' },
         { label: 'منهجيتي', href: '#methodology' },
         { label: 'خدماتي', href: '#services' },
-        { label: 'هات لينك', href: '#hattlink' },
+        { label: 'منتجاتي', href: '#products' },
       ],
       cta: 'تواصل معي',
       name: 'عمر طاهر علي',
@@ -110,11 +110,28 @@ export const translations = {
         visit: 'زيارة'
       }
     },
-    hattLink: {
-      badge: 'منتج جديد',
-      title: 'تعرف على هات لينك',
-      description: 'خدمة مبتكرة طورتها لتسهيل جمع ومشاركة جميع روابطك المهمة في صفحة واحدة أنيقة واحترافية. جربها الآن واصنع هويتك الرقمية المجمعة بسهولة.',
-      cta: 'جرب الخدمة الآن',
+    products: {
+      title: 'تعرف على',
+      items: [
+        {
+          id: 'hattlink',
+          badge: 'منتج جديد',
+          title: 'هات لينك',
+          description: 'خدمة مبتكرة طورتها لتسهيل جمع ومشاركة جميع روابطك المهمة في صفحة واحدة أنيقة واحترافية. جربها الآن واصنع هويتك الرقمية المجمعة بسهولة.',
+          cta: 'جرب الخدمة الآن',
+          link: 'https://hattl.cc',
+          logoUrl: 'https://drive.google.com/thumbnail?id=1JG60mUvG2YyKtSWjiUGQP6IDsljy1vOc&sz=w800'
+        },
+        {
+          id: 'medad',
+          badge: 'منتج جديد',
+          title: 'مِدَاد',
+          description: 'منصة تدوين هادئة وأنيقة، خالية من المشتتات، لتنشر أفكارك بجمال يليق بها. تمنحك مساحتك الخاصة، وهوية بصرية تعبر عنك، وتجربة قراءة تريح العين.',
+          cta: 'جرب الخدمة الآن',
+          link: 'https://medad.blog/',
+          logoUrl: 'https://drive.google.com/thumbnail?id=1kydqSKsC_sKjey0QN0eqoh0eY29mQWtT&sz=w800'
+        }
+      ]
     },
     footer: {
       rights: 'جميع الحقوق محفوظة 2026 عمر طاهر علي.'
@@ -131,7 +148,7 @@ export const translations = {
         { label: 'My Vision', href: '#about' },
         { label: 'Methodology', href: '#methodology' },
         { label: 'Services', href: '#services' },
-        { label: 'Hatt Link', href: '#hattlink' },
+        { label: 'My Products', href: '#products' },
       ],
       cta: "Let's Talk",
       name: 'Umar Ali',
@@ -233,11 +250,28 @@ export const translations = {
         visit: 'Visit'
       }
     },
-    hattLink: {
-      badge: 'New Product',
-      title: 'Discover Hatt Link',
-      description: 'An innovative service I developed to help you collect and share all your important links in one elegant, professional page. Try it now and build your unified digital identity.',
-      cta: 'Try it Now',
+    products: {
+      title: 'Discover',
+      items: [
+        {
+          id: 'hattlink',
+          badge: 'New Product',
+          title: 'Hatt Link',
+          description: 'An innovative service I developed to help you collect and share all your important links in one elegant, professional page. Try it now and build your unified digital identity.',
+          cta: 'Try it Now',
+          link: 'https://hattl.cc',
+          logoUrl: 'https://drive.google.com/thumbnail?id=1JG60mUvG2YyKtSWjiUGQP6IDsljy1vOc&sz=w800'
+        },
+        {
+          id: 'medad',
+          badge: 'New Product',
+          title: 'Medad',
+          description: 'A quiet and elegant blogging platform, free from distractions, to publish your thoughts with the beauty they deserve. It gives you your own space, a visual identity that expresses you, and a reading experience that rests the eye.',
+          cta: 'Try it Now',
+          link: 'https://medad.blog/',
+          logoUrl: 'https://drive.google.com/thumbnail?id=1kydqSKsC_sKjey0QN0eqoh0eY29mQWtT&sz=w800'
+        }
+      ]
     },
     footer: {
       rights: '© 2026 Umar Ali. All Rights Reserved.'
