@@ -49,15 +49,15 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, t, customM
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="relative bg-white w-full max-w-lg rounded-[2.5rem] shadow-2xl overflow-hidden border border-white"
+            className="relative bg-white dark:bg-gray-900 w-full max-w-lg rounded-[2.5rem] shadow-2xl overflow-hidden border border-white dark:border-gray-800"
           >
             {/* Header with Decorative Background */}
-            <div className="relative p-8 md:p-10 bg-gradient-to-br from-blue-50 via-white to-transparent overflow-hidden">
+            <div className="relative p-8 md:p-10 bg-gradient-to-br from-blue-50 dark:from-blue-900/20 via-white dark:via-gray-900 to-transparent overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
               
               <button
                 onClick={onClose}
-                className="absolute top-6 right-6 p-2 rounded-full bg-white/80 border border-gray-100 text-gray-400 hover:text-primary transition-all shadow-sm z-10"
+                className="absolute top-6 right-6 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 border border-gray-100 dark:border-gray-700 text-gray-400 hover:text-primary transition-all shadow-sm z-10"
               >
                 <X size={20} />
               </button>
@@ -75,10 +75,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, t, customM
                   Available Now
                 </motion.div>
                 
-                <h3 className="text-3xl font-bold text-gray-800 mb-2 leading-tight">
+                <h3 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-2 leading-tight">
                   {t.title}
                 </h3>
-                <p className="text-gray-500 text-base md:text-lg max-w-sm mx-auto">
+                <p className="text-gray-500 dark:text-gray-400 text-base md:text-lg max-w-sm mx-auto">
                   {t.subtitle}
                 </p>
               </div>
@@ -110,21 +110,21 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, t, customM
               </motion.a>
 
               {/* Email Card */}
-              <div className="group relative flex items-center justify-between p-5 rounded-3xl bg-gray-50 border border-gray-100 hover:bg-white hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-blue-500/5">
+              <div className="group relative flex items-center justify-between p-5 rounded-3xl bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 hover:bg-white dark:hover:bg-gray-700 hover:border-primary/30 dark:hover:border-primary/30 transition-all hover:shadow-xl hover:shadow-blue-500/5">
                 <div className="flex items-center gap-4">
-                  <div className="bg-blue-50 p-3 rounded-2xl text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                  <div className="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-2xl text-primary dark:text-blue-400 group-hover:bg-primary group-hover:text-white transition-colors">
                     <Mail className="w-8 h-8" />
                   </div>
                   <div className="text-start">
-                    <p className="font-bold text-xl leading-none mb-1 text-gray-800">Email</p>
-                    <p className="text-sm font-medium text-gray-500 truncate max-w-[150px] md:max-w-none">info@umarali.cc</p>
+                    <p className="font-bold text-xl leading-none mb-1 text-gray-800 dark:text-gray-100">Email</p>
+                    <p className="text-sm font-medium text-gray-500 dark:text-gray-400 truncate max-w-[150px] md:max-w-none">info@umarali.cc</p>
                   </div>
                 </div>
                 
                 <div className="flex items-center gap-2">
                   <button 
                     onClick={copyEmail}
-                    className="p-3 rounded-xl bg-white border border-gray-100 text-gray-400 hover:text-primary hover:border-primary/50 transition-all shadow-sm"
+                    className="p-3 rounded-xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 text-gray-400 dark:text-gray-500 hover:text-primary dark:hover:text-primary hover:border-primary/50 transition-all shadow-sm"
                     title="Copy Email"
                   >
                     {copied ? <Check size={18} className="text-green-500" /> : <Copy size={18} />}

@@ -42,7 +42,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ t, lang, onContactCli
   };
 
   return (
-    <section id="services" className="py-20 md:py-28 bg-white border-y border-gray-50 overflow-hidden">
+    <section id="services" className="py-20 md:py-28 bg-white dark:bg-gray-900 border-y border-gray-50 dark:border-gray-800 overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -53,7 +53,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ t, lang, onContactCli
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-6 font-outfit tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-6 font-outfit tracking-tight">
               {t.title}
             </h2>
             <div className="w-20 h-1.5 bg-primary mx-auto rounded-full mb-6"></div>
@@ -75,21 +75,21 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ t, lang, onContactCli
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group relative bg-white p-8 md:p-10 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 hover:border-primary/20 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full"
+              className="group relative bg-white dark:bg-gray-800 p-8 md:p-10 rounded-[2rem] border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5 hover:border-primary/20 dark:hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full"
             >
               {/* Subtle background element */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[4rem] -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
               {/* Icon Container */}
-              <div className="mb-8 w-16 h-16 flex items-center justify-center bg-blue-50 text-primary rounded-2xl group-hover:bg-primary group-hover:text-white group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/30 transition-all duration-300 shadow-sm">
+              <div className="mb-8 w-16 h-16 flex items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-primary rounded-2xl group-hover:bg-primary group-hover:text-white group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/30 transition-all duration-300 shadow-sm">
                 {icons[index]}
               </div>
 
               {/* Content */}
-              <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors leading-tight font-outfit">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 group-hover:text-primary dark:group-hover:text-primary transition-colors leading-tight font-outfit">
                 {service.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-8 font-inter">
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-base md:text-lg mb-8 font-inter">
                 {service.desc}
               </p>
               
@@ -97,14 +97,14 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ t, lang, onContactCli
               <div className="mt-auto flex flex-col gap-6">
                 <button 
                   onClick={() => onContactClick(service.whatsappMessage)}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gray-50 text-gray-700 font-bold border border-gray-100 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300 shadow-sm"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gray-50 dark:bg-gray-700/50 text-gray-700 dark:text-gray-200 font-bold border border-gray-100 dark:border-gray-600 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300 shadow-sm"
                 >
                   <span>{t.ctaLabel}</span>
                   {lang === 'ar' ? <ArrowUpLeft className="w-4 h-4" /> : <ArrowUpRight className="w-4 h-4" />}
                 </button>
                 
                 {/* Decorative bottom line */}
-                <div className={`h-1 w-12 bg-gray-100 group-hover:w-full group-hover:bg-primary/30 transition-all duration-500 rounded-full ${lang === 'ar' ? 'mr-0' : 'ml-0'}`}></div>
+                <div className={`h-1 w-12 bg-gray-100 dark:bg-gray-700 group-hover:w-full group-hover:bg-primary/30 transition-all duration-500 rounded-full ${lang === 'ar' ? 'mr-0' : 'ml-0'}`}></div>
               </div>
             </motion.div>
           ))}

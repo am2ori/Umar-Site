@@ -51,7 +51,7 @@ const About: React.FC<AboutProps> = ({ t }) => {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-blue-900/10 border border-white/50 group h-full bg-gray-200">
+             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-blue-900/10 border border-white/50 dark:border-gray-700/50 group h-full bg-gray-200 dark:bg-gray-800">
                 <img 
                   src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=75&w=1000&auto=format&fit=crop" 
                   alt="Business Strategy Planning" 
@@ -64,14 +64,14 @@ const About: React.FC<AboutProps> = ({ t }) => {
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent"></div>
                 
-                <div className="absolute bottom-6 right-6 md:bottom-8 md:right-8 bg-white/95 backdrop-blur px-4 py-3 md:px-6 md:py-4 rounded-2xl shadow-lg border border-white/20">
+                <div className="absolute bottom-6 right-6 md:bottom-8 md:right-8 bg-white/95 dark:bg-gray-800/95 backdrop-blur px-4 py-3 md:px-6 md:py-4 rounded-2xl shadow-lg border border-white/20 dark:border-gray-700/50">
                    <div className="flex items-center gap-3">
-                      <div className="p-2 bg-blue-50 rounded-lg">
-                        <Activity className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                      <div className="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
+                        <Activity className="w-5 h-5 md:w-6 md:h-6 text-primary dark:text-blue-400" />
                       </div>
                       <div>
-                        <p className="text-[10px] md:text-xs text-gray-600 font-bold uppercase tracking-wider">{t.imgBadgeTitle}</p>
-                        <p className="text-gray-800 font-bold text-base md:text-lg">{t.imgBadgeValue}</p>
+                        <p className="text-[10px] md:text-xs text-gray-600 dark:text-gray-400 font-bold uppercase tracking-wider">{t.imgBadgeTitle}</p>
+                        <p className="text-gray-800 dark:text-gray-100 font-bold text-base md:text-lg">{t.imgBadgeValue}</p>
                       </div>
                    </div>
                 </div>
@@ -86,13 +86,13 @@ const About: React.FC<AboutProps> = ({ t }) => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <span className="text-primary font-bold tracking-wider text-sm uppercase mb-3 block font-inter">{t.badge}</span>
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-6 leading-tight font-outfit tracking-tight">
+            <span className="text-primary dark:text-blue-400 font-bold tracking-wider text-sm uppercase mb-3 block font-inter">{t.badge}</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-6 leading-tight font-outfit tracking-tight">
               {t.title} <br/>
-              <span className="text-gray-500">{t.subtitle}</span>
+              <span className="text-gray-500 dark:text-gray-400">{t.subtitle}</span>
             </h2>
             
-            <div className="space-y-4 md:space-y-6 text-base md:text-lg text-gray-600 leading-relaxed mb-8 md:mb-10 font-inter">
+            <div className="space-y-4 md:space-y-6 text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8 md:mb-10 font-inter">
               <p>{t.body}</p>
             </div>
 
@@ -107,14 +107,14 @@ const About: React.FC<AboutProps> = ({ t }) => {
                 <motion.div 
                   key={idx} 
                   variants={itemVariants}
-                  className="flex items-center gap-4 p-3 rounded-xl hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-gray-100"
+                  className="flex items-center gap-4 p-3 rounded-xl hover:bg-white dark:hover:bg-gray-800 hover:shadow-sm transition-all border border-transparent hover:border-gray-100 dark:hover:border-gray-700"
                 >
-                  <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-blue-50 text-primary rounded-lg">
+                  <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-primary dark:text-blue-400 rounded-lg">
                     {icons[idx]}
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-800 text-base md:text-lg font-outfit">{item.label}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed font-inter">{item.desc}</p>
+                    <h3 className="font-bold text-gray-800 dark:text-gray-100 text-base md:text-lg font-outfit">{item.label}</h3>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-inter">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}

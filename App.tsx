@@ -21,6 +21,14 @@ function App() {
   const [activeMessage, setActiveMessage] = useState<string>('');
   const [lang, setLang] = useState<Language>('ar');
 
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('theme') === 'dark' ||
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+    return false;
+  });
+
   const openContactModal = (message?: string) => {
     setActiveMessage(message || translations[lang].services.defaultWhatsappMessage);
     setIsContactModalOpen(true);
@@ -35,8 +43,20 @@ function App() {
     document.documentElement.lang = lang;
   }, [lang]);
 
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
+
+  const toggleTheme = () => setIsDarkMode(!isDarkMode);
+
   return (
-    <div className={`min-h-screen bg-white text-gray-800 scroll-smooth relative ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
+    <div className={`min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 scroll-smooth relative transition-colors duration-300 ${lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
       {/* Subtle Animated Mesh Gradient Background */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <motion.div 
@@ -66,6 +86,8 @@ function App() {
           onContactClick={() => openContactModal()} 
           lang={lang} 
           toggleLang={toggleLang}
+          isDarkMode={isDarkMode}
+          toggleTheme={toggleTheme}
           t={t.navbar}
         />
         <main>

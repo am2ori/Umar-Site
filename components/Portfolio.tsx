@@ -20,12 +20,12 @@ interface PortfolioProps {
 
 const Portfolio: React.FC<PortfolioProps> = ({ onContactClick, t }) => {
   return (
-    <section id="portfolio" className="py-16 md:py-24 bg-white">
+    <section id="portfolio" className="py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4">{t.title}</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4">{t.title}</h2>
         </div>
 
         {/* Projects Grid */}
@@ -33,7 +33,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ onContactClick, t }) => {
           {t.projects.map((project, index) => (
             <motion.div 
               key={project.id}
-              className="group bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 p-6 md:p-8 flex flex-col relative overflow-hidden"
+              className="group bg-white dark:bg-gray-800 rounded-[2rem] border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl hover:shadow-blue-900/5 dark:hover:shadow-blue-500/5 transition-all duration-300 p-6 md:p-8 flex flex-col relative overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -42,7 +42,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ onContactClick, t }) => {
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-blue-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <div className="flex justify-between items-start mb-6">
-                 <div className="bg-white border border-gray-100 shadow-sm rounded-2xl p-3 w-16 h-16 md:w-20 md:h-20 flex items-center justify-center group-hover:shadow-md transition-shadow">
+                 <div className="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm rounded-2xl p-3 w-16 h-16 md:w-20 md:h-20 flex items-center justify-center group-hover:shadow-md transition-shadow">
                     <img 
                         src={project.imageUrl} 
                         alt={project.title} 
@@ -54,24 +54,24 @@ const Portfolio: React.FC<PortfolioProps> = ({ onContactClick, t }) => {
                     />
                  </div>
 
-                 <span className="bg-blue-50 text-primary text-[10px] md:text-xs font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-blue-100 mt-1">
+                 <span className="bg-blue-50 dark:bg-blue-900/30 text-primary dark:text-blue-400 text-[10px] md:text-xs font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-blue-100 dark:border-blue-800 mt-1">
                     {project.role}
                  </span>
               </div>
 
               <div className="flex flex-col flex-grow">
-                <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3 group-hover:text-primary dark:group-hover:text-primary transition-colors">
                     {project.title}
                 </h3>
                 
-                <p className="text-gray-600 leading-relaxed mb-6 text-sm md:text-base">
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-sm md:text-base">
                   {project.description}
                 </p>
                 
-                <div className="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
+                <div className="mt-auto pt-6 border-t border-gray-50 dark:border-gray-700 flex items-center justify-between">
                     <div className="flex flex-wrap gap-2">
                         {project.tags.slice(0, 3).map(tag => (
-                            <span key={tag} className="text-[10px] md:text-xs font-medium text-gray-600 bg-gray-50 px-2.5 py-1.5 rounded-lg">
+                            <span key={tag} className="text-[10px] md:text-xs font-medium text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700/50 px-2.5 py-1.5 rounded-lg">
                             #{tag}
                             </span>
                         ))}

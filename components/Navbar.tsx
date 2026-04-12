@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, Moon, Sun } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Language } from '../types';
 
@@ -7,6 +7,8 @@ interface NavbarProps {
   onContactClick: () => void;
   lang: Language;
   toggleLang: () => void;
+  isDarkMode: boolean;
+  toggleTheme: () => void;
   t: {
     items: { label: string; href: string }[];
     cta: string;
@@ -14,7 +16,7 @@ interface NavbarProps {
   };
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onContactClick, lang, toggleLang, t }) => {
+const Navbar: React.FC<NavbarProps> = ({ onContactClick, lang, toggleLang, isDarkMode, toggleTheme, t }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -30,28 +32,39 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick, lang, toggleLang, t }) 
 
   return (
     <nav className="fixed top-4 left-0 right-0 z-50 transition-all duration-300 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="bg-white/60 backdrop-blur-xl border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(37,99,235,0.08)] transition-shadow duration-500 rounded-full px-6 py-3 md:py-4 flex items-center justify-between">
+      <div className="bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl border border-white/80 dark:border-gray-700/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:shadow-[0_8px_30px_rgba(37,99,235,0.08)] transition-shadow duration-500 rounded-full px-6 py-3 md:py-4 flex items-center justify-between">
         {/* Logo Name & Lang Switcher Wrapper */}
         <div className="flex items-center gap-4 md:gap-6">
           <a 
             href="#hero" 
             onClick={(e) => scrollToSection(e, '#hero')}
-            className="text-xl md:text-2xl font-bold text-gray-800 hover:text-primary transition-colors duration-300 tracking-tight font-outfit"
+            className="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 hover:text-primary dark:hover:text-primary transition-colors duration-300 tracking-tight font-outfit"
           >
             {t.name}
           </a>
 
-          {/* Language Switcher (Desktop/Mobile) */}
-          <button
-            onClick={toggleLang}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200 hover:border-primary/50 bg-white/50 hover:bg-white text-sm font-semibold text-gray-600 hover:text-primary transition-all duration-300 group"
-          >
-            <Globe className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-            {/* Apply Arabic font specifically for the Arabic letter when in English mode */}
-            <span className={lang === 'en' ? 'font-arabic text-lg leading-none pt-0.5' : ''}>
-              {lang === 'ar' ? 'EN' : 'ع'}
-            </span>
-          </button>
+          <div className="flex items-center gap-2">
+            {/* Theme Switcher */}
+            <button
+              onClick={toggleTheme}
+              className="flex items-center justify-center w-9 h-9 rounded-full border border-gray-200 dark:border-gray-700 hover:border-primary/50 dark:hover:border-primary/50 bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-all duration-300"
+              aria-label="Toggle Dark Mode"
+            >
+              {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+
+            {/* Language Switcher (Desktop/Mobile) */}
+            <button
+              onClick={toggleLang}
+              className="flex items-center gap-2 px-3 py-1.5 h-9 rounded-full border border-gray-200 dark:border-gray-700 hover:border-primary/50 dark:hover:border-primary/50 bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-all duration-300 group"
+            >
+              <Globe className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+              {/* Apply Arabic font specifically for the Arabic letter when in English mode */}
+              <span className={lang === 'en' ? 'font-arabic text-lg leading-none pt-0.5' : ''}>
+                {lang === 'ar' ? 'EN' : 'ع'}
+              </span>
+            </button>
+          </div>
         </div>
 
         {/* Desktop Menu */}
@@ -61,7 +74,7 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick, lang, toggleLang, t }) 
               key={item.label}
               href={item.href}
               onClick={(e) => scrollToSection(e, item.href)}
-              className="text-gray-600 hover:text-primary relative group text-sm font-semibold transition-colors"
+              className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary relative group text-sm font-semibold transition-colors"
             >
               {item.label}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -79,7 +92,7 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick, lang, toggleLang, t }) 
         <div className="flex md:hidden">
           <button
             onClick={toggleMenu}
-            className="inline-flex items-center justify-center p-2 rounded-full text-gray-600 hover:text-primary hover:bg-gray-100 focus:outline-none transition-colors"
+            className="inline-flex items-center justify-center p-2 rounded-full text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors"
           >
             <span className="sr-only">Menu</span>
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -95,7 +108,7 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick, lang, toggleLang, t }) 
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden absolute top-full left-4 right-4 mt-2 bg-white/90 backdrop-blur-lg border border-gray-200/50 rounded-2xl shadow-xl overflow-hidden"
+            className="md:hidden absolute top-full left-4 right-4 mt-2 bg-white/90 dark:bg-gray-900/95 backdrop-blur-lg border border-gray-200/50 dark:border-gray-700/50 rounded-2xl shadow-xl overflow-hidden"
           >
             <div className="px-4 py-6 space-y-2">
               {t.items.map((item) => (
@@ -103,7 +116,7 @@ const Navbar: React.FC<NavbarProps> = ({ onContactClick, lang, toggleLang, t }) 
                   key={item.label}
                   href={item.href}
                   onClick={(e) => scrollToSection(e, item.href)}
-                  className="text-gray-600 hover:text-primary hover:bg-gray-50 block px-4 py-3 rounded-xl text-base font-medium transition-colors"
+                  className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 block px-4 py-3 rounded-xl text-base font-medium transition-colors"
                 >
                   {item.label}
                 </a>

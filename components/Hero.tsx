@@ -45,20 +45,20 @@ const LiveDataFlow = ({ labels, isRTL }: { labels: string[], isRTL: boolean }) =
   // Ordered as: 0: Project Management, 1: Business Consulting, 2: Digital Transformation, 3: AI Tools
   const floatingLabels = isRTL ? [
     // Arabic (RTL) Layout - Keep as is per user request
-    { text: labels[0], x: "10%", y: "15%", delay: 0, color: "bg-blue-50 border-blue-100 text-primary" },
-    { text: labels[1], x: "70%", y: "10%", delay: 0.5, color: "bg-white border-gray-100 text-gray-600 shadow-sm" },
-    { text: labels[2], x: "65%", y: "80%", delay: 1, color: "bg-white border-gray-100 text-gray-600 shadow-sm" },
+    { text: labels[0], x: "10%", y: "15%", delay: 0, color: "bg-blue-50 dark:bg-blue-900/30 border-blue-100 dark:border-blue-800 text-primary dark:text-blue-300" },
+    { text: labels[1], x: "70%", y: "10%", delay: 0.5, color: "bg-white dark:bg-gray-800 border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-300 shadow-sm" },
+    { text: labels[2], x: "65%", y: "80%", delay: 1, color: "bg-white dark:bg-gray-800 border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-300 shadow-sm" },
     { text: labels[3], x: "5%", y: "75%", delay: 1.5, color: "bg-primary text-white shadow-lg" },
   ] : [
     // English (LTR) Optimized Layout - Perfectly aligned Quadrants
-    { text: labels[0], x: "5%", y: "15%", delay: 0, color: "bg-blue-50 border-blue-100 text-primary" },
-    { text: labels[1], x: "65%", y: "12%", delay: 0.5, color: "bg-white border-gray-100 text-gray-600 shadow-sm" },
-    { text: labels[2], x: "62%", y: "76%", delay: 1, color: "bg-white border-gray-100 text-gray-600 shadow-sm" },
+    { text: labels[0], x: "5%", y: "15%", delay: 0, color: "bg-blue-50 dark:bg-blue-900/30 border-blue-100 dark:border-blue-800 text-primary dark:text-blue-300" },
+    { text: labels[1], x: "65%", y: "12%", delay: 0.5, color: "bg-white dark:bg-gray-800 border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-300 shadow-sm" },
+    { text: labels[2], x: "62%", y: "76%", delay: 1, color: "bg-white dark:bg-gray-800 border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-300 shadow-sm" },
     { text: labels[3], x: "8%", y: "82%", delay: 1.5, color: "bg-primary text-white shadow-lg shadow-primary/20" },
   ];
 
   return (
-    <div className="w-full h-full min-h-[400px] md:min-h-[500px] flex items-center justify-center relative bg-white/40 backdrop-blur-sm rounded-[2rem] border border-blue-50 shadow-xl p-4 overflow-hidden">
+    <div className="w-full h-full min-h-[400px] md:min-h-[500px] flex items-center justify-center relative bg-white/40 dark:bg-gray-800/40 backdrop-blur-sm rounded-[2rem] border border-blue-50 dark:border-gray-700 shadow-xl p-4 overflow-hidden transition-colors duration-300">
       <svg viewBox="0 0 500 500" className="w-full h-full max-w-[500px] z-10 pointer-events-none">
         <defs>
           <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -84,7 +84,7 @@ const LiveDataFlow = ({ labels, isRTL }: { labels: string[], isRTL: boolean }) =
         })}
 
         {nodes.map((node) => (
-          <circle key={node.id} cx={node.x} cy={node.y} r={node.r} fill={node.id === 'hub' ? '#2563EB' : 'white'} stroke="#2563EB" strokeWidth="2" />
+          <circle key={node.id} cx={node.x} cy={node.y} r={node.r} fill={node.id === 'hub' ? '#2563EB' : 'currentColor'} className="text-white dark:text-gray-800" stroke="#2563EB" strokeWidth="2" />
         ))}
       </svg>
       
@@ -120,33 +120,33 @@ const Hero: React.FC<HeroProps> = ({ onContactClick, t, lang }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <span className="inline-block px-4 py-1.5 bg-blue-50/80 border border-blue-100 text-primary rounded-full text-xs font-bold mb-6">
+            <span className="inline-block px-4 py-1.5 bg-blue-50/80 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 text-primary dark:text-blue-300 rounded-full text-xs font-bold mb-6">
               {t.badge}
             </span>
             
-            <h1 className={`text-3xl md:text-5xl lg:text-6xl font-extrabold text-gray-800 mb-6 leading-tight font-outfit tracking-tight flex flex-col gap-2 md:gap-4`}>
+            <h1 className={`text-3xl md:text-5xl lg:text-6xl font-extrabold text-gray-800 dark:text-gray-100 mb-6 leading-tight font-outfit tracking-tight flex flex-col gap-2 md:gap-4`}>
               <span>{t.rolePrefix}</span>
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-blue-400 to-indigo-600 animate-gradient-x pb-2">{t.roleSuffix}</span>
             </h1>
             
-            <p className="text-base md:text-xl text-gray-600 leading-relaxed max-w-2xl mb-8 font-medium font-inter">
+            <p className="text-base md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mb-8 font-medium font-inter">
               {t.subtext}
             </p>
 
             <div className={`flex flex-row gap-4 md:gap-6 items-center mb-8 border-primary/20 ${isRTL ? 'border-r-4 pr-4' : 'border-l-4 pl-4'}`}>
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-white rounded shadow-sm border border-gray-100 p-1">
+                <div className="w-8 h-8 bg-white dark:bg-gray-800 rounded shadow-sm border border-gray-100 dark:border-gray-700 p-1">
                      <img 
                         src="https://drive.google.com/thumbnail?id=1bYOAafE1XRAvx93La2Xg-OFcqHkDAII0&sz=w100" 
                         alt="EMBA" 
                         width="32" height="32"
-                        className="w-full h-full object-contain" 
+                        className="w-full h-full object-contain dark:brightness-0 dark:invert" 
                      />
                 </div>
-                <span className="text-xs font-semibold text-gray-700">{t.cert1}</span>
+                <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">{t.cert1}</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-white rounded shadow-sm border border-gray-100 p-1">
+                <div className="w-8 h-8 bg-white dark:bg-gray-800 rounded shadow-sm border border-gray-100 dark:border-gray-700 p-1">
                      <img 
                         src="https://drive.google.com/thumbnail?id=1joa-u67FNTN_vgIjcCsbTvo48-LnKvRy&sz=w100" 
                         alt="PMP" 
@@ -154,7 +154,7 @@ const Hero: React.FC<HeroProps> = ({ onContactClick, t, lang }) => {
                         className="w-full h-full object-contain" 
                      />
                 </div>
-                <span className="text-xs font-semibold text-gray-700">{t.cert2}</span>
+                <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">{t.cert2}</span>
               </div>
             </div>
 

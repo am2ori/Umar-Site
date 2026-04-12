@@ -129,7 +129,7 @@ export const translations = {
           description: 'منصة تدوين هادئة وأنيقة، خالية من المشتتات، لتنشر أفكارك بجمال يليق بها. تمنحك مساحتك الخاصة، وهوية بصرية تعبر عنك، وتجربة قراءة تريح العين.',
           cta: 'جرب الخدمة الآن',
           link: 'https://medad.blog/',
-          logoUrl: 'https://drive.google.com/thumbnail?id=1kydqSKsC_sKjey0QN0eqoh0eY29mQWtT&sz=w800'
+          logoUrl: 'https://drive.google.com/thumbnail?id=12ExkMPVfLQwrm5EQ8fp640n4X59pCYYE&sz=w800'
         }
       ]
     },
@@ -269,7 +269,7 @@ export const translations = {
           description: 'A quiet and elegant blogging platform, free from distractions, to publish your thoughts with the beauty they deserve. It gives you your own space, a visual identity that expresses you, and a reading experience that rests the eye.',
           cta: 'Try it Now',
           link: 'https://medad.blog/',
-          logoUrl: 'https://drive.google.com/thumbnail?id=1kydqSKsC_sKjey0QN0eqoh0eY29mQWtT&sz=w800'
+          logoUrl: 'https://drive.google.com/thumbnail?id=12ExkMPVfLQwrm5EQ8fp640n4X59pCYYE&sz=w800'
         }
       ]
     },

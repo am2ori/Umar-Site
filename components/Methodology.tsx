@@ -27,21 +27,21 @@ const Methodology: React.FC<MethodologyProps> = ({ t, lang }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-10 md:mb-16">
           <motion.h2 
-            className="text-3xl md:text-5xl font-bold text-gray-800 mb-4 font-outfit tracking-tight"
+            className="text-3xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4 font-outfit tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             {t.title}
           </motion.h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto font-inter">
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-inter">
             {t.subtitle}
           </p>
         </div>
 
         <div className="relative">
           {/* Connecting Line (Desktop) */}
-          <div className="hidden lg:block absolute top-8 left-0 right-0 h-1 bg-gray-100 rounded-full overflow-hidden">
+          <div className="hidden lg:block absolute top-8 left-0 right-0 h-1 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
              <motion.div 
                className={`h-full bg-gradient-to-l from-primary to-blue-300 ${lang === 'ar' ? 'origin-right' : 'origin-left'}`}
                initial={{ scaleX: 0 }}
@@ -62,27 +62,27 @@ const Methodology: React.FC<MethodologyProps> = ({ t, lang }) => {
                 transition={{ delay: 0.3 + (index * 0.2), duration: 0.5 }}
               >
                 {/* Step Indicator (Circle) */}
-                <div className="hidden lg:flex w-16 h-16 rounded-full bg-white border-[3px] border-gray-100 text-primary font-bold text-xl items-center justify-center mb-8 shadow-sm z-10 transition-colors duration-300 hover:border-primary hover:bg-blue-50">
+                <div className="hidden lg:flex w-16 h-16 rounded-full bg-white dark:bg-gray-800 border-[3px] border-gray-100 dark:border-gray-700 text-primary dark:text-blue-400 font-bold text-xl items-center justify-center mb-8 shadow-sm z-10 transition-colors duration-300 hover:border-primary dark:hover:border-primary hover:bg-blue-50 dark:hover:bg-blue-900/30">
                   {step.step}
                 </div>
 
                 {/* Card */}
-                <div className="w-full bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 hover:border-primary/20 transition-all duration-500 group h-full hover:-translate-y-2">
+                <div className="w-full bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/5 hover:border-primary/20 dark:hover:border-primary/30 transition-all duration-500 group h-full hover:-translate-y-2">
                    {/* Layout: Icon + Title */}
                    <div className="flex flex-row lg:flex-col items-center lg:items-start gap-4 mb-4">
                       {/* Icon */}
-                      <div className="p-3 rounded-xl bg-blue-50 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                      <div className="p-3 rounded-xl bg-blue-50 dark:bg-blue-900/30 text-primary dark:text-blue-400 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                         {icons[index]}
                       </div>
                       
                       {/* Mobile Step Indicator */}
-                      <span className="lg:hidden text-2xl font-bold text-gray-100 mr-auto">
+                      <span className="lg:hidden text-2xl font-bold text-gray-100 dark:text-gray-700 mr-auto">
                         {step.step}
                       </span>
                    </div>
                    
-                   <h3 className="text-lg font-bold text-gray-800 mb-2 font-outfit">{step.title}</h3>
-                   <p className="text-gray-600 text-sm leading-relaxed font-inter">
+                   <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-2 font-outfit">{step.title}</h3>
+                   <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed font-inter">
                      {step.desc}
                    </p>
                 </div>
