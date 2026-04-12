@@ -19,7 +19,17 @@ import { Language } from './types';
 function App() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [activeMessage, setActiveMessage] = useState<string>('');
-  const [lang, setLang] = useState<Language>('ar');
+  const [lang, setLang] = useState<Language>(() => {
+    if (typeof window !== 'undefined') {
+      const savedLang = localStorage.getItem('lang');
+      if (savedLang === 'ar' || savedLang === 'en') return savedLang;
+      if (navigator.language && navigator.language.toLowerCase().startsWith('ar')) {
+        return 'ar';
+      }
+      return 'en';
+    }
+    return 'ar';
+  });
 
   const [isDarkMode, setIsDarkMode] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -34,7 +44,13 @@ function App() {
     setIsContactModalOpen(true);
   };
   
-  const toggleLang = () => setLang(prev => prev === 'ar' ? 'en' : 'ar');
+  const toggleLang = () => {
+    setLang(prev => {
+      const newLang = prev === 'ar' ? 'en' : 'ar';
+      localStorage.setItem('lang', newLang);
+      return newLang;
+    });
+  };
 
   const t = translations[lang];
 

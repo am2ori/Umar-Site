@@ -54,7 +54,7 @@ const ProductsSection: React.FC<ProductsSectionProps> = ({ lang, t }) => {
 
               {/* Badge */}
               <div className={`absolute top-6 md:top-8 ${lang === 'ar' ? 'left-6 md:left-8' : 'right-6 md:right-8'} z-20`}>
-                <span className="inline-block px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-wider uppercase shadow-sm backdrop-blur-sm border border-primary/10">
+                <span className="inline-block px-3 py-1.5 rounded-full bg-primary/10 text-primary dark:text-white text-xs font-bold tracking-wider uppercase shadow-sm backdrop-blur-sm border border-primary/10">
                   {product.badge}
                 </span>
               </div>
