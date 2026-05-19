@@ -50,7 +50,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ onContactClick, t }) => {
                         decoding="async"
                         width="80"
                         height="80"
-                        className="w-full h-full object-contain"
+                        className={`w-full h-full object-contain ${project.id === 'webdoor' || project.id === 'easypay' ? 'dark:brightness-0 dark:invert' : ''}`}
                     />
                  </div>
 

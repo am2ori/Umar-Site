@@ -64,7 +64,7 @@ const ProductsSection: React.FC<ProductsSectionProps> = ({ lang, t }) => {
                 <img 
                   src={product.logoUrl} 
                   alt={`${product.title} Logo`} 
-                  className="w-full h-auto object-contain dark:brightness-0 dark:invert"
+                  className="w-full h-full object-contain dark:brightness-0 dark:invert"
                   loading="lazy"
                 />
               </div>

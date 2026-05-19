@@ -27,7 +27,7 @@ const tools: Tool[] = [
   { name: 'ChatGPT', iconUrl: 'https://api.iconify.design/logos:openai-icon.svg' },
   { name: 'Claude', iconUrl: 'https://cdn.simpleicons.org/claude/D97757' },
   { name: 'Perplexity', iconUrl: 'https://cdn.simpleicons.org/perplexity/20B2AA' },
-  { name: 'Google AI Studio', iconUrl: 'https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg' },
+  { name: 'Google AI Studio', iconUrl: 'https://cdn.simpleicons.org/googlegemini' },
   
   // Automation & Dev
   { name: 'n8n', iconUrl: 'https://cdn.simpleicons.org/n8n/EA4B71' },
